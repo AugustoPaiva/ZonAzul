@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ZonAzul</string>
+    <string name="title_activity_login">Login</string>
+    <!-- Login -->
+    <string name="login_TxtUsuario">Usuário:</string>
+    <string name="login_TxtSenha">Senha:</string>
+    <string name="login_btnEntrar">Entrar</string>
+    <string name="login_ckbConectado">Manter conectado:</string>
+
+    <!-- Validacao -->
+    <string name="login_valUsuario">Usuário obrigatório</string>
+    <string name="login_valSenha">Senha obrigatória</string>
+
+    <!-- Mensagens -->
+    <string name="msg_login_incorreto"> Usuário ou senha inválidos</string>
+
+</resources>
