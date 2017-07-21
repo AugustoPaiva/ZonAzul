@@ -3,6 +3,7 @@ package comviewzonazul.google.httpssites.zonazul;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,30 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox ckbConectado;
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        edtUsuario   = (EditText) findViewById(R.id.login_edtUsuario);
+        edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
+        ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
+
+        helper       = new UsuarioDAO(this);
+
+        SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+        boolean conectado             = preferences.getBoolean(MANTER_CONECTADO, false);
+        if (conectado){
+            ChamarMainActivity();
+        }
+    }
+
+    public void cadastro(View view){
+        startActivity(new Intent(this, CadUsuarioActivity.class));
+        //setContentView(R.layout.activity_cad_usuario);
+
+    }
 
     public void logar(View view){
         String usuario = edtUsuario.getText().toString();
@@ -54,20 +79,6 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        edtUsuario   = (EditText) findViewById(R.id.login_edtUsuario);
-        edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
-        helper       = new UsuarioDAO(this);
-        ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
-        SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        boolean conectado             = preferences.getBoolean(MANTER_CONECTADO, false);
-        if (conectado){
-            ChamarMainActivity();
-        }
-    }
 
 }

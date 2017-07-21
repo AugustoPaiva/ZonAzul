@@ -8,6 +8,12 @@ public class Usuario {
 
     public Usuario(){};
 
+    public Usuario( String nome, String login, String senha){
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+    }
+
     public Usuario(Integer id, String nome, String login, String senha){
         this._id = id;
         this.nome = nome;

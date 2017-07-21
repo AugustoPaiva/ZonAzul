@@ -24,6 +24,7 @@ public class UsuarioDAO {
         }
         return database;
     }
+
     private Usuario criarUsuario(Cursor cursor){
         Usuario model = new Usuario(
                 cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Usuarios._ID)),
@@ -44,17 +45,20 @@ public class UsuarioDAO {
         cursor.close();
         return usuarios;
     }
-    public long salvarUsuario(Usuario usuario){
+    public boolean salvarUsuario(Usuario usuario){
         ContentValues valores = new ContentValues();
         valores.put(DatabaseHelper.Usuarios.NOME, usuario.getNome());
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
-
-        if (usuario.get_id() != null){
+        if (buscarUsuarioPorLogin(usuario.getLogin())){
+            return false;
+        }
+        /*if (usuario.get_id() != null){
             return getDatabase().update(DatabaseHelper.Usuarios.TABELA, valores,
                     "_id = ?", new String[]{usuario.get_id().toString()});
-        }
-        return getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
+        }*/
+        getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
+        return true;
     }
     public boolean removerUsuario(int id){
         return getDatabase().delete(DatabaseHelper.Usuarios.TABELA,
@@ -70,6 +74,16 @@ public class UsuarioDAO {
         }
         return null;
     }
+    public boolean buscarUsuarioPorLogin(String login){
+        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
+                DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null,null,null);
+        cursor.close();
+        if(cursor.moveToNext()){
+            return true;
+        }
+        return false;
+    }
+
     public boolean logar(String usuario, String senha){
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 null, "LOGIN = ? AND SENHA = ?", new String[]{usuario, senha}, null, null, null);

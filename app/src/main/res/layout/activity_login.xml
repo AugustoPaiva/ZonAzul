@@ -46,5 +46,12 @@
             android:layout_height="wrap_content"
             android:text="@string/login_btnEntrar"
             android:onClick="logar"/>
+
+        <Button
+            android:id="@+id/login_btnCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar"
+            android:onClick="cadastro"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
