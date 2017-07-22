@@ -1,4 +1,4 @@
-package dao;
+package comviewzonazul.google.httpssites.zonazul.usuario.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,14 +8,15 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Usuario;
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
+import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 
 public class UsuarioDAO {
 
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase database;
 
-    public UsuarioDAO(Context context){
+    public UsuarioDAO(Context context,Usuario usuario){
         databaseHelper = new DatabaseHelper(context);
     }
     private SQLiteDatabase getDatabase(){
@@ -45,20 +46,14 @@ public class UsuarioDAO {
         cursor.close();
         return usuarios;
     }
-    public boolean salvarUsuario(Usuario usuario){
+    public void salvarUsuario(Usuario usuario){
         ContentValues valores = new ContentValues();
+
         valores.put(DatabaseHelper.Usuarios.NOME, usuario.getNome());
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
-        if (buscarUsuarioPorLogin(usuario.getLogin())){
-            return false;
-        }
-        /*if (usuario.get_id() != null){
-            return getDatabase().update(DatabaseHelper.Usuarios.TABELA, valores,
-                    "_id = ?", new String[]{usuario.get_id().toString()});
-        }*/
         getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
-        return true;
+
     }
     public boolean removerUsuario(int id){
         return getDatabase().delete(DatabaseHelper.Usuarios.TABELA,
@@ -84,13 +79,14 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean logar(String usuario, String senha){
+    public Usuario existeUsuario(String login, String senha){  //antes se chamava "logar"
+        Usuario usuario = new Usuario(login,senha);
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
-                null, "LOGIN = ? AND SENHA = ?", new String[]{usuario, senha}, null, null, null);
+                null, "LOGIN = ? AND SENHA = ?", new String[]{login, senha}, null, null, null);
         if (cursor.moveToFirst()){
-            return true;
+            return usuario;
         }
-        return false;
+        return null;
     }
 
     public void fechar(){

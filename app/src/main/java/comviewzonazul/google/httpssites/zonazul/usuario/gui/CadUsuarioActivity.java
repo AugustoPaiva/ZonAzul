@@ -1,19 +1,16 @@
-package comviewzonazul.google.httpssites.zonazul;
+package comviewzonazul.google.httpssites.zonazul.usuario.gui;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-import dao.UsuarioDAO;
-import model.Usuario;
+import comviewzonazul.google.httpssites.zonazul.R;
+import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
+import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
+import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
 
 public class CadUsuarioActivity extends AppCompatActivity {
@@ -29,38 +26,13 @@ public class CadUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cad_usuario);
 
-        usuarioDAO = new UsuarioDAO(this);
-
         edtNome = (EditText) findViewById(R.id.usuario_edtNome);
         edtLogin = (EditText) findViewById(R.id.usuario_edtLogin);
         edtSenha = (EditText) findViewById(R.id.usuario_edtSenha);
-
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View view) {
-              //  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
-
-          //  }
-        //});
     }
-
-    //public void salvar(View view){
-      //  cadastrar();
-
-    //}
-
- /*   @Override
-    protected void onDestroy() {
-        usuarioDAO.fechar();
-        super.onDestroy();
-    }*/
     public void sair(View view){
         startActivity(new Intent(this, LoginActivity.class));
-        //setContentView(R.layout.activity_login);
+
     }
     public void salvar(View view){
         boolean validacao = true;
@@ -87,25 +59,22 @@ public class CadUsuarioActivity extends AppCompatActivity {
             usuario.setSenha(senha);
 
             fazerCadastro(nome,login,senha);
-            /*long resultado = usuarioDAO.salvarUsuario(usuario);
-            if (resultado != -1){
-                if(idusuario > 0){
-                    Mensagem.Msg(this, getString(R.string.mensagem_atualizar));
-                }else{
-                    Mensagem.Msg(this, getString(R.string.mensagem_atualizar));
-                }
 
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-            }else{
-                Mensagem.Msg(this, getString(R.string.mensagem_erro));
-            }*/
         }
     }
     public void fazerCadastro(String nome,String login,String senha){
         Context context = getApplicationContext();
-        UsuarioDAO user = new UsuarioDAO(context);
+
         Usuario usuario = new Usuario(nome,login,senha);
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
+
+        if(!(usuarioNegocio.retornarUsuarioLogin(usuario))){
+            usuarioNegocio.cadastro(usuario);
+        }
+        else{
+            Mensagem.Msg(this, getString(R.string.mensagem_erro));
+        }
+        /*
         Boolean resultado = user.salvarUsuario(usuario);
         //startActivity(new Intent(this, LoginActivity.class));
         if (resultado){
@@ -116,5 +85,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
         }else{
             Mensagem.Msg(this, getString(R.string.mensagem_erro));
         }
+        */
     }
 }

@@ -1,4 +1,4 @@
-package model;
+package comviewzonazul.google.httpssites.zonazul.usuario.dominio;
 
 public class Usuario {
     private Integer _id;
@@ -7,7 +7,11 @@ public class Usuario {
     private String senha;
 
     public Usuario(){};
+    public Usuario(String login, String senha){
 
+        this.login = login;
+        this.senha = senha;
+    }
     public Usuario( String nome, String login, String senha){
         this.nome = nome;
         this.login = login;
