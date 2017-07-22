@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comviewzonazul.google.httpssites.zonazul.MainActivity">
+    tools:context="comviewzonazul.google.httpssites.zonazul.usuario.gui.MainActivity">
 
 </android.support.constraint.ConstraintLayout>

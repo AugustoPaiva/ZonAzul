@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="comviewzonazul.google.httpssites.zonazul.CadUsuarioActivity"
+    tools:context="comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity"
     tools:showIn="@layout/activity_cad_usuario">
 
 </android.support.constraint.ConstraintLayout>
