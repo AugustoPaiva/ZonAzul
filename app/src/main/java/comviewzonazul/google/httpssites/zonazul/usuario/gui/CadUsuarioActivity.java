@@ -35,6 +35,7 @@ public class CadUsuarioActivity extends AppCompatActivity {
 
     }
     public void salvar(View view){
+
         boolean validacao = true;
         String nome = edtNome.getText().toString();
         String login = edtLogin.getText().toString();
@@ -68,7 +69,8 @@ public class CadUsuarioActivity extends AppCompatActivity {
         Usuario usuario = new Usuario(nome,login,senha);
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
 
-        if(!(usuarioNegocio.retornarUsuarioLogin(usuario))){
+        if((usuarioNegocio.retornarUsuarioLogin(usuario))){
+
             usuarioNegocio.cadastro(usuario);
         }
         else{

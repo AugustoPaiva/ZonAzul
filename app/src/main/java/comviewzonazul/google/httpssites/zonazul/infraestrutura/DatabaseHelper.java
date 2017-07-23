@@ -16,12 +16,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Tabela de usuarios
-        db.execSQL("create table usuarios(_id integer primary key autoincrement, "
+        db.execSQL("create table Usuarios(_id integer primary key autoincrement, "
                 +"nome text not null, login text not null, senha text not null)");
-        //Tabela de tarefas
 
         //Cadastrar um usuario
-        db.execSQL("insert into usuarios(nome, login, senha) values('Admin', 'admin','123')");
+        db.execSQL("insert into Usuarios(nome, login, senha) values('Admin', 'admin','123')");
     }
 
     @Override

@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/ZonAzul-UFRPE.iml" filepath="$PROJECT_DIR$/ZonAzul-UFRPE.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zona.iml" filepath="$PROJECT_DIR$/zona.iml" />
     </modules>
   </component>
 </project>
