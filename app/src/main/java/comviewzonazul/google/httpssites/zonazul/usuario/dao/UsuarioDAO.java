@@ -72,10 +72,12 @@ public class UsuarioDAO {
     public boolean buscarUsuarioPorLogin(String login){
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null,null,null);
-        cursor.close();
-        if(cursor.moveToNext()){
+
+        if(!(cursor.moveToFirst())){ //quer dizer que não ha nada dentro do cursor
+            cursor.close();
             return true;
         }
+        cursor.close();
         return false;
     }
 
