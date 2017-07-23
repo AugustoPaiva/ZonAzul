@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usuario.gui.MainActivity"></activity>
+        <activity android:name=".usuario.gui.EscolhaPerfilActivity" />
         <activity android:name=".usuario.gui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,9 @@
         <activity
             android:name=".usuario.gui.CadUsuarioActivity"
             android:label="@string/title_activity_cad_usuario"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="res.layout.cadastroUsuario" />
+        <activity android:name="res.layout.cadastroCliente"></activity>
     </application>
 
 </manifest>

@@ -1,23 +1,24 @@
-package comviewzonazul.google.httpssites.zonazul;
+package comviewzonazul.google.httpssites.zonazul.usuario.gui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import dao.UsuarioDAO;
-import model.Usuario;
+import comviewzonazul.google.httpssites.zonazul.R;
+
+import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
+import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
 
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtUsuario, edtSenha;
-    private UsuarioDAO helper;
+    private UsuarioNegocio usuarioNegocio;
     private CheckBox ckbConectado;
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
@@ -31,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
         ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
 
-        helper       = new UsuarioDAO(this);
+       // helper       = new UsuarioDAO(this);
 
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         boolean conectado             = preferences.getBoolean(MANTER_CONECTADO, false);
@@ -60,7 +61,10 @@ public class LoginActivity extends AppCompatActivity {
         }
         if(validacao){
             //logar
-            if(helper.logar(usuario, senha)){
+            Usuario user = new Usuario(usuario,senha);
+            Context context = getApplicationContext();
+            usuarioNegocio = new UsuarioNegocio(context,user);
+            if(usuarioNegocio.retornarUsuario(usuario,senha) !=null)//if(helper.(usuario, senha)){
                 if(ckbConectado.isChecked()){
                     SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor     = sharedPreferences.edit();
@@ -72,10 +76,10 @@ public class LoginActivity extends AppCompatActivity {
                 Mensagem.Msg(this, getString(R.string.msg_login_incorreto));
             }
         }
-    }
+
 
     private void ChamarMainActivity(){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, EscolhaPerfilActivity.class));
         finish();
     }
 
