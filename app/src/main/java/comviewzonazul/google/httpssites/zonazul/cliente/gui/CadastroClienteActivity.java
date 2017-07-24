@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import comviewzonazul.google.httpssites.zonazul.R;
+import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
+import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 
 /**
  * Created by Augusto on 23/07/17.
@@ -12,19 +14,37 @@ import comviewzonazul.google.httpssites.zonazul.R;
 
 public class CadastroClienteActivity {
 
-    EditText txt_email;
+    EditText txt_email, txt_cep, txt_numero, txt_complemeto, txt_cidade;
+    Endereco endereco;
+    Cliente cliente;
     public class cadastroCliente extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_cadastro_cliente);
+            txt_email = (EditText) findViewById(R.id.txt_email);
+            txt_cep = (EditText) findViewById(R.id.txt_cep);
+            txt_numero = (EditText) findViewById(R.id.txt_numero);
+            txt_complemeto = (EditText) findViewById(R.id.txt_complemento);
+            txt_cidade = (EditText) findViewById(R.id.txt_cidade);
+
         }
     }
 
-    public void  findItens(){
-   //     txt_email = (EditText)findViewById(R.id.txt_email);
+    public void montarObjetos(){
+        String email = txt_email.getText().toString();
+        String cep = txt_cep.getText().toString();
+        String numero = txt_numero.getText().toString();
+        String complemento = txt_complemeto.getText().toString();
+        String cidade = txt_cidade.getText().toString();
+        endereco = new Endereco(numero,complemento,cep,cidade);
+        cliente = new Cliente(email,endereco);
     }
+
+    
+
+
 
    // public cadastrar(){}
 
