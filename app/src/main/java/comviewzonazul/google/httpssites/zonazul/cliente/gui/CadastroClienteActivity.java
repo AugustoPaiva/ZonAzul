@@ -1,12 +1,13 @@
-package comviewzonazul.google.httpssites.zonazul.cliente.gui;
+package comviewzonazul.google.httpssites.zonazul.usuario.gui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
-
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
+import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 
 /**
  * Created by Augusto on 23/07/17.
@@ -16,19 +17,24 @@ public class CadastroClienteActivity {
 
     EditText txt_email, txt_cep, txt_numero, txt_complemeto, txt_cidade;
     Endereco endereco;
+    ClienteNegocio clienteNegocio;
     Cliente cliente;
+    Context context;
+
+
     public class cadastroCliente extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_cadastro_cliente);
+
+            context = getApplicationContext();
             txt_email = (EditText) findViewById(R.id.txt_email);
             txt_cep = (EditText) findViewById(R.id.txt_cep);
             txt_numero = (EditText) findViewById(R.id.txt_numero);
             txt_complemeto = (EditText) findViewById(R.id.txt_complemento);
             txt_cidade = (EditText) findViewById(R.id.txt_cidade);
-
         }
     }
 
@@ -42,11 +48,16 @@ public class CadastroClienteActivity {
         cliente = new Cliente(email,endereco);
     }
 
-    
+    public void validacoes(){
+        cadastroCliente();
+    }
 
+    public void cadastroCliente(){
+        montarObjetos();
+        clienteNegocio = new ClienteNegocio(context,cliente);
+        if((clienteNegocio.retornarClienteEmail())){
+            clienteNegocio.cadastro();
+        }
 
-
-   // public cadastrar(){}
-
-
+    }
 }
