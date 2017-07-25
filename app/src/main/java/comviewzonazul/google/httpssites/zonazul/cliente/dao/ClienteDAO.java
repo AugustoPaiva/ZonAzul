@@ -9,7 +9,7 @@ import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
 
 /**
- * Created by root on 24/07/17.
+ * Created by Augusto on 24/07/17.
  */
 
 public class ClienteDAO {
@@ -49,7 +49,7 @@ public class ClienteDAO {
         valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
-        //valores.put(DatabaseHelper.Clientes.ID_USUARIO, //preciso do sessions para pegar o id do usuario;
+        valores.put(DatabaseHelper.Clientes.ID_USUARIO, cliente.getUser_id());
         getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
     }
 

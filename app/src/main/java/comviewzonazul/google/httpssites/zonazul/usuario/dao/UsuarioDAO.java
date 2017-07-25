@@ -16,17 +16,18 @@ public class UsuarioDAO {
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase database;
 
-    public UsuarioDAO(Context context,Usuario usuario){
+    public UsuarioDAO(Context context, Usuario usuario) {
         databaseHelper = new DatabaseHelper(context);
     }
-    private SQLiteDatabase getDatabase(){
-        if (database == null){
+
+    private SQLiteDatabase getDatabase() {
+        if (database == null) {
             database = databaseHelper.getWritableDatabase();
         }
         return database;
     }
 
-    private Usuario criarUsuario(Cursor cursor){
+    private Usuario criarUsuario(Cursor cursor) {
         Usuario model = new Usuario(
                 cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Usuarios._ID)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Usuarios.NOME)),
@@ -35,18 +36,20 @@ public class UsuarioDAO {
         );
         return model;
     }
-    public List<Usuario> listarUsuarios(){
+
+    public List<Usuario> listarUsuarios() {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 DatabaseHelper.Usuarios.COLUNAS, null, null, null, null, null);
         List<Usuario> usuarios = new ArrayList<Usuario>();
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             Usuario model = criarUsuario(cursor);
             usuarios.add(model);
         }
         cursor.close();
         return usuarios;
     }
-    public void salvarUsuario(Usuario usuario){
+
+    public void salvarUsuario(Usuario usuario) {
         ContentValues valores = new ContentValues();
 
         valores.put(DatabaseHelper.Usuarios.NOME, usuario.getNome());
@@ -55,25 +58,28 @@ public class UsuarioDAO {
         getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
 
     }
-    public boolean removerUsuario(int id){
+
+    public boolean removerUsuario(int id) {
         return getDatabase().delete(DatabaseHelper.Usuarios.TABELA,
-                "_id = ?", new String[]{ Integer.toString(id)})>0;
+                "_id = ?", new String[]{Integer.toString(id)}) > 0;
     }
-    public Usuario buscarUsuarioPorId(int id){
+
+    public Usuario buscarUsuarioPorId(int id) {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
-                DatabaseHelper.Usuarios.COLUNAS, "_id = ?", new String[]{Integer.toString(id)}, null,null,null);
-        if(cursor.moveToNext()){
+                DatabaseHelper.Usuarios.COLUNAS, "_id = ?", new String[]{Integer.toString(id)}, null, null, null);
+        if (cursor.moveToNext()) {
             Usuario model = criarUsuario(cursor);
             cursor.close();
             return model;
         }
         return null;
     }
-    public boolean buscarUsuarioPorLogin(String login){
-        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
-                DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null,null,null);
 
-        if(!(cursor.moveToFirst())){ //quer dizer que não ha nada dentro do cursor
+    public boolean buscarUsuarioPorLogin(String login) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
+                DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null, null, null);
+
+        if (!(cursor.moveToFirst())) { //quer dizer que não ha nada dentro do cursor
             cursor.close();
             return true;
         }
@@ -81,19 +87,33 @@ public class UsuarioDAO {
         return false;
     }
 
-    public Usuario existeUsuario(String login, String senha){  //antes se chamava "logar"
-        Usuario usuario = new Usuario(login,senha);
+    public Usuario existeUsuario(String login, String senha) {  //antes se chamava "logar"
+        Usuario usuario = new Usuario(login, senha);
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 null, "LOGIN = ? AND SENHA = ?", new String[]{login, senha}, null, null, null);
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             return usuario;
         }
         return null;
     }
 
-    public void fechar(){
+    public void fechar() {
         databaseHelper.close();
         database = null;
     }
 
+    public int retornarId(String login) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
+                DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null, null, null);
+
+        if (!(cursor.moveToFirst())) { //quer dizer que não ha nada dentro do cursor
+            int id = cursor.getInt(cursor.getColumnIndex("_id"));
+            cursor.close();
+            return id;
+        }
+        cursor.close();
+        return 0;
+
+
+    }
 }

@@ -6,13 +6,14 @@ package comviewzonazul.google.httpssites.zonazul.cliente.dominio;
 
 public class Cliente {
     public int id;
+    public int user_id;
     public String email;
     public double saldo = 0;
     public Endereco endereco;
 
-    public Cliente(int id, String email, double saldo, Endereco endereco){
+    public Cliente(int id, String email, Endereco endereco){
     }
-    public Cliente(String email,  Endereco endereco){
+    public Cliente(String email,  Endereco endereco, int user_id){
     }
     public Cliente(String email){
     }
@@ -47,5 +48,13 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 }

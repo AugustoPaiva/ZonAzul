@@ -12,6 +12,7 @@ import android.widget.EditText;
 import comviewzonazul.google.httpssites.zonazul.R;
 
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.Sessao;
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.dominio.Session;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
@@ -23,28 +24,31 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox ckbConectado;
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
-    Sessao sessao = new Sessao();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
-        //if (sessao.getUsuariologado() != null){
-         //   startActivity(new Intent(this, EscolhaPerfilActivity.class));
-           // finish();
-        //}
+        Sessao.setContext(getApplicationContext());
+
+
 
         edtUsuario   = (EditText) findViewById(R.id.login_edtUsuario);
         edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
         ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
-
-       // helper       = new UsuarioDAO(this);
 
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         boolean conectado             = preferences.getBoolean(MANTER_CONECTADO, false);
         if (conectado){
             ChamarMainActivity();
         }
-    }
+
+
+        }
+
+
+
 
     public void cadastro(View view){
         startActivity(new Intent(this, CadUsuarioActivity.class));
@@ -71,8 +75,16 @@ public class LoginActivity extends AppCompatActivity {
             Context context = getApplicationContext();
             usuarioNegocio = new UsuarioNegocio(context, user);
             if (usuarioNegocio.retornarUsuario(usuario, senha)) {
+                if(ckbConectado.isChecked()){
+                    SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+                    SharedPreferences.Editor editor     = sharedPreferences.edit();
+                    editor.putBoolean(MANTER_CONECTADO, true);
+                    editor.putString("LOGIN",usuario);
+                    editor.putString("SENHA",senha);
+                    ChamarMainActivity();
+                    editor.commit();
+                }
 
-                ChamarMainActivity();
             } else {
                 Mensagem.Msg(this, getString(R.string.msg_login_incorreto));
             }
