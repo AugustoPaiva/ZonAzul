@@ -14,12 +14,10 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
 
 public class CadUsuarioActivity extends AppCompatActivity {
-
     private EditText edtNome, edtLogin, edtSenha;
     private UsuarioDAO usuarioDAO;
     private Usuario usuario;
     private int idusuario;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
     }
     public void sair(View view){
         startActivity(new Intent(this, LoginActivity.class));
-
     }
     public void salvar(View view){
 
@@ -58,9 +55,7 @@ public class CadUsuarioActivity extends AppCompatActivity {
             usuario.setNome(nome);
             usuario.setLogin(login);
             usuario.setSenha(senha);
-
             fazerCadastro(nome,login,senha);
-
         }
     }
     public void fazerCadastro(String nome,String login,String senha){
@@ -70,23 +65,13 @@ public class CadUsuarioActivity extends AppCompatActivity {
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
 
         if((usuarioNegocio.retornarUsuarioLogin(usuario))){
-
             usuarioNegocio.cadastro(usuario);
+            Mensagem.Msg(this, getString(R.string.mensagem_cadastro));
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
         else{
             Mensagem.Msg(this, getString(R.string.mensagem_erro));
         }
-        /*
-        Boolean resultado = user.salvarUsuario(usuario);
-        //startActivity(new Intent(this, LoginActivity.class));
-        if (resultado){
-            Mensagem.Msg(this, getString(R.string.mensagem_cadastro));
-            finish();
-            //setContentView(R.layout.activity_login);
-            startActivity(new Intent(this, LoginActivity.class));
-        }else{
-            Mensagem.Msg(this, getString(R.string.mensagem_erro));
-        }
-        */
     }
 }

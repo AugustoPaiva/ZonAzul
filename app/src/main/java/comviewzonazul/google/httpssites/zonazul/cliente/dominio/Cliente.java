@@ -11,12 +11,41 @@ public class Cliente {
     public Endereco endereco;
 
     public Cliente(int id, String email, double saldo, Endereco endereco){
-
     }
     public Cliente(String email,  Endereco endereco){
-
     }
     public Cliente(String email){
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }

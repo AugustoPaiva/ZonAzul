@@ -1,12 +1,13 @@
 package comviewzonazul.google.httpssites.zonazul.infraestrutura.negocio;
-
+/*
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.dao.SessionDAO;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.dominio.Session;
 import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 
-/**
- * Created by root on 24/07/17.
- */
+
+ Created by root on 24/07/17.
+
 
 
 
@@ -35,5 +36,4 @@ public class SessionNegocio {
         SessionDAO sessionDAO = new SessionDAO();
         sessionDAO.excluirUsuarioLogado(Session.getUsuario().get_id()));
     }
-
-}
+*/

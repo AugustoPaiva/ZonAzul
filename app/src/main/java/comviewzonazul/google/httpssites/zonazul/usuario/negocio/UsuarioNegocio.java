@@ -17,9 +17,12 @@ public class UsuarioNegocio {
 
     }
 
-    public Usuario retornarUsuario(String login, String senha){
+    public boolean retornarUsuario(String login, String senha){
+        if(usuarioDAO.existeUsuario(login,senha) == null){ //nao existe usuario
+            return false;
+        }
+        else{return true;}
 
-        return usuarioDAO.existeUsuario(login,senha);
 
     }
     public boolean retornarUsuarioLogin(Usuario usuario){

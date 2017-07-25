@@ -12,7 +12,7 @@ import comviewzonazul.google.httpssites.zonazul.infraestrutura.dominio.Session;
  * Created by Augusto on 24/07/17.
  */
 
-
+/*
 public class SessionDAO {
     public SQLiteDatabase db;
     private final Context context;
@@ -51,3 +51,4 @@ public class SessionDAO {
     }
 
 }
+*/

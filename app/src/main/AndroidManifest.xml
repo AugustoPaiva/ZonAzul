@@ -21,8 +21,10 @@
             android:name=".usuario.gui.CadUsuarioActivity"
             android:label="@string/title_activity_cad_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="res.layout.cadastroUsuario" />
-        <activity android:name="res.layout.cadastroCliente"></activity>
+        <!--<activity android:name=".usuario.gui.CadUsuarioActivity" /> -->
+        <activity android:name=".cliente.gui.CadastroClienteActivity">
+
+        </activity>
     </application>
 
 </manifest>

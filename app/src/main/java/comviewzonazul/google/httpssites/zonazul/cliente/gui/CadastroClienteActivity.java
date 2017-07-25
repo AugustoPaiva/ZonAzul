@@ -1,4 +1,4 @@
-package comviewzonazul.google.httpssites.zonazul.usuario.gui;
+package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -58,6 +58,5 @@ public class CadastroClienteActivity {
         if((clienteNegocio.retornarClienteEmail())){
             clienteNegocio.cadastro();
         }
-
     }
 }

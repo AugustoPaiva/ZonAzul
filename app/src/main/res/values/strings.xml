@@ -20,7 +20,7 @@
     <string name="title_activity_cad_usuario">CadUsuarioActivity</string>
     <string name="mensagem_cadastro">Registro cadastrado com sucesso.</string>
     <string name="mensagem_atualizar">Registro atualizado com sucesso.</string>
-    <string name="mensagem_erro">Erro ao salvar.</string>
+    <string name="mensagem_erro">Este login ja esta em uso, tente outro.</string>
 
     <!-- ususarios -->
     <string name="usuario_txtNome"> Nome:</string>

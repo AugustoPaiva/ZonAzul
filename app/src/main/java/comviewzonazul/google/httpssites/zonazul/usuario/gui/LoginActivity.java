@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.Sessao;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
@@ -22,11 +23,15 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox ckbConectado;
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
-
+    Sessao sessao = new Sessao();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //if (sessao.getUsuariologado() != null){
+         //   startActivity(new Intent(this, EscolhaPerfilActivity.class));
+           // finish();
+        //}
 
         edtUsuario   = (EditText) findViewById(R.id.login_edtUsuario);
         edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
@@ -43,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void cadastro(View view){
         startActivity(new Intent(this, CadUsuarioActivity.class));
+        finish();
         //setContentView(R.layout.activity_cad_usuario);
 
     }
@@ -59,23 +65,19 @@ public class LoginActivity extends AppCompatActivity {
             validacao = false;
             edtSenha.setError(getString(R.string.login_valSenha));
         }
-        if(validacao){
+        if(validacao) {
             //logar
-            Usuario user = new Usuario(usuario,senha);
+            Usuario user = new Usuario(usuario, senha);
             Context context = getApplicationContext();
-            usuarioNegocio = new UsuarioNegocio(context,user);
-            if(usuarioNegocio.retornarUsuario(usuario,senha) !=null)//if(helper.(usuario, senha)){
-                if(ckbConectado.isChecked()){
-                    SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-                    SharedPreferences.Editor editor     = sharedPreferences.edit();
-                    editor.putBoolean(MANTER_CONECTADO, true);
-                    editor.commit();
-                }
+            usuarioNegocio = new UsuarioNegocio(context, user);
+            if (usuarioNegocio.retornarUsuario(usuario, senha)) {
+
                 ChamarMainActivity();
-            }else {
+            } else {
                 Mensagem.Msg(this, getString(R.string.msg_login_incorreto));
             }
         }
+    }
 
 
     private void ChamarMainActivity(){

@@ -37,10 +37,10 @@
         android:text="Cliente"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="300dp"
-        android:onClick="cliente"
         android:layout_above="@+id/bt_sair"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginBottom="50dp"
+        android:onClick="cliente"/>
 
     <Button
         android:id="@+id/bt_sair"
@@ -49,8 +49,8 @@
         android:text="sair"
         tools:layout_editor_absoluteX="87dp"
         tools:layout_editor_absoluteY="427dp"
-        android:onClick="logout"
         android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="logout"/>
 </RelativeLayout>

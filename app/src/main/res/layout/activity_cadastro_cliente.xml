@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +14,11 @@
         android:inputType="textPersonName"
         android:text="Email"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteY="75dp"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
 
     <EditText
         android:id="@+id/txt_numero"
@@ -24,7 +28,10 @@
         android:inputType="textPersonName"
         android:text="Numero"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="231dp" />
+        tools:layout_editor_absoluteY="231dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txt_complemento"
@@ -34,7 +41,11 @@
         android:inputType="textPersonName"
         android:text="Complemento"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="274dp" />
+        tools:layout_editor_absoluteY="274dp"
+        android:layout_above="@+id/txt_cidade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/txt_cidade"
@@ -44,7 +55,11 @@
         android:inputType="textPersonName"
         android:text="Cidade"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="317dp" />
+        tools:layout_editor_absoluteY="317dp"
+        android:layout_above="@+id/txt_voltar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="27dp" />
 
     <EditText
         android:id="@+id/txt_cep"
@@ -54,7 +69,11 @@
         android:inputType="textPostalAddress"
         android:text="CEP"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="188dp" />
+        tools:layout_editor_absoluteY="188dp"
+        android:layout_above="@+id/txt_numero"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="26dp" />
 
     <Button
         android:id="@+id/txt_voltar"
@@ -63,7 +82,13 @@
         android:text="Voltar"
         tools:layout_editor_absoluteX="59dp"
         tools:layout_editor_absoluteY="414dp"
-        android:onClick="voltar"/>
+        android:onClick="voltar"
+        android:layout_alignBaseline="@+id/txt_cadastrar"
+        android:layout_alignBottom="@+id/txt_cadastrar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp" />
 
     <Button
         android:id="@+id/txt_cadastrar"
@@ -72,7 +97,13 @@
         android:text="cadastrar"
         tools:layout_editor_absoluteX="220dp"
         tools:layout_editor_absoluteY="414dp"
-        android:onClick="cadastrar"/>
+        android:onClick="cadastrar"
+        android:layout_marginBottom="34dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="82dp"
+        android:layout_marginEnd="82dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -80,5 +111,11 @@
         android:layout_height="wrap_content"
         android:text="Endereço"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="146dp" />
-</android.support.constraint.ConstraintLayout>
+        tools:layout_editor_absoluteY="146dp"
+        android:layout_above="@+id/txt_cep"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="12dp" />
+</RelativeLayout>
