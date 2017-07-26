@@ -11,8 +11,6 @@ import android.widget.EditText;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 
-import comviewzonazul.google.httpssites.zonazul.infraestrutura.Sessao;
-import comviewzonazul.google.httpssites.zonazul.infraestrutura.dominio.Session;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
@@ -22,15 +20,14 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtUsuario, edtSenha;
     private UsuarioNegocio usuarioNegocio;
     private CheckBox ckbConectado;
-    private static final String MANTER_CONECTADO = "manter_conectado";
-    private static final String PREFERENCE_NAME = "LoginActivityPreferences";
+    String MANTER_CONECTADO = "manter_conectado";
+    String PREFERENCE_NAME = "LoginActivityPreferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-        Sessao.setContext(getApplicationContext());
 
 
 

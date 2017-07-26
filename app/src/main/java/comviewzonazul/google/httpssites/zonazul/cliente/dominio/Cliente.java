@@ -11,11 +11,20 @@ public class Cliente {
     public double saldo = 0;
     public Endereco endereco;
 
-    public Cliente(int id, String email, Endereco endereco){
+    public Cliente(int id_, String email_, Endereco endereco_){
+        id = id_;
+        email = email_;
+        endereco = endereco_;
     }
-    public Cliente(String email,  Endereco endereco, int user_id){
+    public Cliente(String email_,  Endereco endereco_, int user_id_){
+        email = email_;
+        endereco = endereco_;
+        user_id = user_id_;
+
     }
-    public Cliente(String email){
+    public Cliente(String email_){
+        email = email_;
+
     }
 
     public int getId() {

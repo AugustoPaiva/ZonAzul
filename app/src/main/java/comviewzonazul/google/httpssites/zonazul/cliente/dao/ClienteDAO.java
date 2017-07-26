@@ -2,20 +2,30 @@ package comviewzonazul.google.httpssites.zonazul.cliente.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
+import util.Mensagem;
 
 /**
  * Created by Augusto on 24/07/17.
  */
 
 public class ClienteDAO {
+
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase database;
     Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 
     public ClienteDAO(Context context, Cliente cliente_){
         databaseHelper = new DatabaseHelper(context);
@@ -30,14 +40,14 @@ public class ClienteDAO {
 
 
     public boolean buscarClienteEmail(){ //Arrumar um jeito dessa função retornar usuario e nao bool(para ajudar no negocio)
-        Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES,
-                DatabaseHelper.Clientes.COLUNAS_CLIENTES, "email = ?", new String[]{cliente.getEmail()}, null,null,null);
+        String email = cliente.getEmail();
 
-        if(!(cursor.moveToFirst())){ //quer dizer que não ha nada dentro do cursor
+        Cursor cursor = getDatabase().query("clientes", new String[]{"*"}, "email=?", new String[]{email}, null, null, null, null);
+        if (cursor.moveToNext()) {
+
             cursor.close();
             return true;
         }
-        cursor.close();
         return false;
     }
 

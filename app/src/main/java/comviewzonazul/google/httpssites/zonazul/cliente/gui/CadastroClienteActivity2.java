@@ -1,6 +1,7 @@
 package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import util.Mensagem;
 
 public class CadastroClienteActivity2 extends AppCompatActivity {
@@ -21,7 +25,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     ClienteNegocio clienteNegocio;
     Cliente cliente;
     Context context;
-    String login_usuario,senha_usuario;
+    String login_usuario,senha_usuario,email;
     int id;
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
     @Override
@@ -67,10 +71,25 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         String cidade = txt_cidade.getText().toString();
         endereco = new Endereco(numero,complemento,cep,cidade);
         cliente = new Cliente(email,endereco,id);
+
     }
 
     public void cadastro(View view){
        validacoes();
 
+    }
+
+    public void voltar(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, EscolhaPerfilActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onBackPressed(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, EscolhaPerfilActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

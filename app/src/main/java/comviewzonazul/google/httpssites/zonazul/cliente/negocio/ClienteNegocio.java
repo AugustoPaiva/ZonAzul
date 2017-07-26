@@ -11,10 +11,14 @@ import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 
 public class ClienteNegocio {
     public ClienteDAO clienteDAO;
-    public ClienteNegocio(Context context, Cliente cliente){
-        clienteDAO = new ClienteDAO(context,cliente);
+    Cliente cliente;
+    public ClienteNegocio(Context context, Cliente cliente_){
+        clienteDAO = new ClienteDAO(context,cliente_);
+        cliente = cliente_;
     }
     public boolean retornarClienteEmail(){
+
+
         return clienteDAO.buscarClienteEmail();
     }
     public void cadastro(){

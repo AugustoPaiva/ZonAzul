@@ -77,7 +77,6 @@ public class CadastroClienteActivity {
         clienteNegocio = new ClienteNegocio(context,cliente);
         if((clienteNegocio.retornarClienteEmail())){
             clienteNegocio.cadastro();
-
         }
     }
 }
