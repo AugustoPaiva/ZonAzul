@@ -1,9 +1,11 @@
 package comviewzonazul.google.httpssites.zonazul.infraestrutura;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 
 /**
@@ -11,60 +13,67 @@ import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
  */
 
 public class Sessao {
-    private DatabaseHelper databaseHelper;
 
-    private SQLiteDatabase database;
+    private static Context context;
+    static String login, senha;
+    private static Usuario usuariologado = null;
+    static DatabaseHelper databaseHelper = new DatabaseHelper(context);
+    static SQLiteDatabase database;
 
-    String login, senha;
-    Usuario usuariologado = null;
 
-    public Sessao() {
+    public static void setContext(Context newcontext){
+        context = newcontext;
+    }
+    public Sessao(Context context) {
         usuariologado = pegarUsuario();
     }
 
-    public Sessao(Usuario usuario) {
+    public Sessao(Context context,Usuario usuario) {
+        databaseHelper = new DatabaseHelper(context);
         usuariologado = usuario;
+        usuariologado = pegarUsuario();
     }
 
-    public Usuario getUsuariologado() {
+    public static Usuario getUsuariologado() {
         return usuariologado;
     }
 
-    public void setUsuariologado(Usuario usuariologado) {
-        this.usuariologado = usuariologado;
+    public static void setUsuariologado(Usuario usuariologado_) {
+        senha = usuariologado_.getSenha();
+        login = usuariologado_.getLogin();
+        usuariologado = usuariologado_;
+        salvaUsuario();
     }
 
-    private SQLiteDatabase getDatabase() {
+    private static SQLiteDatabase getDatabase() {
         if (database == null) {
-           database = databaseHelper.getReadableDatabase();
+            database = databaseHelper.getWritableDatabase();
         }
         return database;
     }
 
-    public void findInformacao() {
-        senha = usuariologado.getSenha();
-        login = usuariologado.getLogin();
-    }
 
-    
 
-    public void salvaUsuario() {
-        findInformacao();
-        SQLiteDatabase database = databaseHelper.getWritableDatabase();
+
+    public static void salvaUsuario() {
+
+
         ContentValues valores = new ContentValues();
         valores.put(DatabaseHelper.Sessao.LOGIN_LOGADO, login);
         valores.put(DatabaseHelper.Sessao.SENHA_LOGADO, senha);
-        database.insert(DatabaseHelper.Sessao.TABELA_SESSAO, null, valores);
+        getDatabase().insert(DatabaseHelper.Sessao.TABELA_SESSAO, null, valores);
+        database.close();
 
     }
 
     public Usuario pegarUsuario() {
         SQLiteDatabase database = databaseHelper.getReadableDatabase();
-        if (exiteUsuario()) {
+        if (existeUsuario()) {
             Cursor cur = database.query(DatabaseHelper.Clientes.TABELA_CLIENTES, DatabaseHelper.Clientes.COLUNAS_CLIENTES, "_id = ?", new String[]{Integer.toString(1)}, null, null, null);
             String login = cur.getString(cur.getColumnIndex("login_logado"));
             String senha = cur.getString(cur.getColumnIndex("login_senha"));
             usuariologado = new Usuario(login, senha);
+            database.close();
             return usuariologado;
         } else {
             usuariologado = null;
@@ -73,15 +82,17 @@ public class Sessao {
 
     }
 
-    public boolean exiteUsuario() {
+    public boolean existeUsuario() {
         SQLiteDatabase database = databaseHelper.getReadableDatabase();
         Cursor cur = database.rawQuery("SELECT COUNT(*) FROM TABELA_SESSAO", null);
 
         if (cur != null) {
             cur.moveToFirst();
             if (cur.getInt(0) == 0) {
+                database.close();
                 return false; // Tabela esta vazia, preencha com seus dados iniciais
             } else {
+                database.close();
                 return true;// Tabela ja contem dados.
             }
         }
@@ -89,6 +100,3 @@ public class Sessao {
     }
 
 }
-
-
-

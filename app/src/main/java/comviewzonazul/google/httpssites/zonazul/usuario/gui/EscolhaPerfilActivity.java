@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import comviewzonazul.google.httpssites.zonazul.R;
-import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity;
+import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2;
+
 
 public class EscolhaPerfilActivity extends AppCompatActivity {
     Button bt_sair;
@@ -21,7 +22,7 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
 
     public void cliente(View view){ //LEMBRAR DE COLOCAR UMA VERIFICAÇÃO DE SE JA TEM UM CLIENTE CADASTRADO.
         Intent intent = new Intent();
-        intent.setClass(this, CadastroClienteActivity.class);
+        intent.setClass(this, CadastroClienteActivity2.class);
         startActivity(intent);
         finish();
 

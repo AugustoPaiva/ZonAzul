@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".usuario.gui.EscolhaPerfilActivity" />
+        <activity
+            android:name=".cliente.gui.CadastroClienteActivity$cadastroCliente"
+            android:label="CadastroClienteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".usuario.gui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +25,13 @@
             android:name=".usuario.gui.CadUsuarioActivity"
             android:label="@string/title_activity_cad_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity android:name=".usuario.gui.CadUsuarioActivity" /> -->
-        <activity android:name=".cliente.gui.CadastroClienteActivity">
+        <!-- <activity android:name=".usuario.gui.CadUsuarioActivity" /> -->
 
-        </activity>
+        <activity
+            android:name=".cliente.gui.ClienteCompra"
+            android:label="@string/title_activity_cliente_compra"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".cliente.gui.CadastroClienteActivity2"></activity>
     </application>
 
 </manifest>

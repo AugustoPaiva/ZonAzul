@@ -26,4 +26,5 @@
     <string name="usuario_txtNome"> Nome:</string>
     <string name="usuario_txtLogin"> Login:</string>
     <string name="usuario_txtSenha"> Senha:</string>
+    <string name="title_activity_cliente_compra">ClienteCompra</string>
 </resources>

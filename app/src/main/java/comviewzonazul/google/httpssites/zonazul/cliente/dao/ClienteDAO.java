@@ -29,7 +29,7 @@ public class ClienteDAO {
     }
 
 
-    public boolean buscarClienteEmail(){ //Arrumar um jeito dessa função retornar usuario e nao bool
+    public boolean buscarClienteEmail(){ //Arrumar um jeito dessa função retornar usuario e nao bool(para ajudar no negocio)
         Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES,
                 DatabaseHelper.Clientes.COLUNAS_CLIENTES, "email = ?", new String[]{cliente.getEmail()}, null,null,null);
 
