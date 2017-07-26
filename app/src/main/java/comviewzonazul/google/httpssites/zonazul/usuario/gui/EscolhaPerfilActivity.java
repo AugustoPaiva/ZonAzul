@@ -21,15 +21,11 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_escolha_perfil);
     }
 
-
-
     public void cliente(View view){ //LEMBRAR DE COLOCAR UMA VERIFICAÇÃO DE SE JA TEM UM CLIENTE CADASTRADO.
         Intent intent = new Intent();
         intent.setClass(this, CadastroClienteActivity2.class);
         startActivity(intent);
         finish();
-
-
     }
 
     public void logout(View view){

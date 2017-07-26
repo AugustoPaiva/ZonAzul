@@ -86,7 +86,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         finish();
     }
 
-    public void onBackPressed(View view){
+    public void onBackPressed(){
         Intent intent = new Intent();
         intent.setClass(this, EscolhaPerfilActivity.class);
         startActivity(intent);
