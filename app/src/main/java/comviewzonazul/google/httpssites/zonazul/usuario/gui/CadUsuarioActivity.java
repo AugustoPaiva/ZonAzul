@@ -19,6 +19,7 @@ public class CadUsuarioActivity extends AppCompatActivity {
     private Usuario usuario;
     private int idusuario;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,12 +12,15 @@ import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 
 public class UsuarioNegocio {
     public UsuarioDAO usuarioDAO;
-    public UsuarioNegocio(Context context,Usuario usuario){
-        usuarioDAO = new UsuarioDAO(context,usuario);
+    public Usuario usuario;
+    public UsuarioNegocio(Context context,Usuario usuario_){
+        usuarioDAO = new UsuarioDAO(context,usuario_);
+        usuario = usuario_;
+
 
     }
 
-    public boolean retornarUsuario(String login, String senha){
+    public boolean retornarUsuario(String login, String senha){ // FAZER COM QUE ESSA FUNÇÃO RETORNE TUDO INCLUSIVE O ID
         if(usuarioDAO.existeUsuario(login,senha) == null){ //nao existe usuario
             return false;
         }
@@ -32,6 +35,10 @@ public class UsuarioNegocio {
 
     }
 
+    public int pegarId(){
+        int id = usuarioDAO.retornarId(usuario.getLogin());
+        return id;
+    }
     public void cadastro(Usuario usuario){
         usuarioDAO.salvarUsuario(usuario);
     }

@@ -11,6 +11,8 @@ public class Cliente {
     public double saldo = 0;
     public Endereco endereco;
 
+
+
     public Cliente(int id_, String email_, Endereco endereco_){
         id = id_;
         email = email_;
@@ -66,4 +68,6 @@ public class Cliente {
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
+
+
 }

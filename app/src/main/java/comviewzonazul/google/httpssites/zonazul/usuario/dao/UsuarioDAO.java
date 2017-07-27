@@ -51,13 +51,17 @@ public class UsuarioDAO {
 
     public void salvarUsuario(Usuario usuario) {
         ContentValues valores = new ContentValues();
+        ContentValues id = new ContentValues();
 
         valores.put(DatabaseHelper.Usuarios.NOME, usuario.getNome());
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
         getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
-
+        id.put(DatabaseHelper.Perfis.ID_USUARIO,this.retornarId(usuario.getLogin()));
+        getDatabase().insert(DatabaseHelper.Perfis.TABELA_PERFIS,null,id);
     }
+
+
 
     public boolean removerUsuario(int id) {
         return getDatabase().delete(DatabaseHelper.Usuarios.TABELA,
@@ -105,7 +109,6 @@ public class UsuarioDAO {
     public int retornarId(String login) {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null, null, null);
-
         if (!(cursor.moveToFirst())) { //quer dizer que não ha nada dentro do cursor
             int id = cursor.getInt(cursor.getColumnIndex("_id"));
             cursor.close();
@@ -113,7 +116,5 @@ public class UsuarioDAO {
         }
         cursor.close();
         return 0;
-
-
     }
 }

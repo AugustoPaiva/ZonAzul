@@ -17,6 +17,7 @@ import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 import util.Mensagem;
 
 public class CadastroClienteActivity2 extends AppCompatActivity {
@@ -28,13 +29,14 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     String login_usuario,senha_usuario,email;
     int id;
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cliente2);
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         login_usuario = preferences.getString("LOGIN", null);
-        senha_usuario = preferences.getString("SENHA", null);
 
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
@@ -44,10 +46,10 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         txt_cidade = (EditText) findViewById(R.id.txt_cidade);
     }
 
-    public void chamarID(){
+    public void chamarID(){ ///A GUI ESTA LIGANDO COM O DAO, NAO É PERMITIDO!!!!
         Usuario usuario = new Usuario(login_usuario,senha_usuario);
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context,usuario);
-        id = usuarioDAO.retornarId(login_usuario);
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
+        id = usuarioNegocio.pegarId();
     }
 
     public void validacoes(){
@@ -78,6 +80,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
        validacoes();
 
     }
+
 
     public void voltar(View view){
         Intent intent = new Intent();

@@ -22,6 +22,7 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     }
 
     public void cliente(View view){ //LEMBRAR DE COLOCAR UMA VERIFICAÇÃO DE SE JA TEM UM CLIENTE CADASTRADO.
+
         Intent intent = new Intent();
         intent.setClass(this, CadastroClienteActivity2.class);
         startActivity(intent);

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".usuario.gui.EscolhaPerfilActivity" />
         <activity
-            android:name=".cliente.gui.CadastroClienteActivity$cadastroCliente"
+            android:name=".cliente.gui.CadastroClienteActivity2"
             android:label="CadastroClienteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".usuario.gui.LoginActivity">
@@ -27,11 +27,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- <activity android:name=".usuario.gui.CadUsuarioActivity" /> -->
 
-        <activity
-            android:name=".cliente.gui.ClienteCompra"
-            android:label="@string/title_activity_cliente_compra"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".cliente.gui.CadastroClienteActivity2"></activity>
     </application>
 
 </manifest>

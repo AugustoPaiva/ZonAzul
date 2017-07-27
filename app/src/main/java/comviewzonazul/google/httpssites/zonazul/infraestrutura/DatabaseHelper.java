@@ -21,11 +21,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Tabela de clientes
         db.execSQL("create table Clientes(_id integer primary key autoincrement, "
                 + "email text not null, cep text not null, complemento text not null, numero text not null, cidade text not null, id_usuario integer)");
-        //Tabela de sessao
-        db.execSQL("create table Sessao(_id integer primary key autoincrement, "
-                + "login_logado text not null, senha_logado text not null)");
         //Cadastrar um usuario
         db.execSQL("insert into Usuarios(nome, login, senha) values('Admin', 'admin','123')");
+        //Associações
+        db.execSQL("create table Perfis(usuario integer primary key autoincrement, "
+                + "cliente text not null, vendedor text not null, agente text not null)");
     }
 
     @Override
@@ -40,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String LOGIN = "login";
         public static final String SENHA = "senha";
 
+
         public static final String[] COLUNAS = new String[]{
                 _ID, NOME, LOGIN, SENHA
         };
@@ -53,24 +54,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COMPLEMENTO = "complemento";
         public static final String NUMERO = "numero";
         public static final String CIDADE = "cidade";
-        public static final String ID_USUARIO = "id_usuario";
 
 
         public static final String[] COLUNAS_CLIENTES = new String[]{
-                _ID, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE, ID_USUARIO
+                _ID, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE,
         };
     }
 
-    public static class Sessao {
-            public static final String TABELA_SESSAO = "sessao";
-            public static final String _ID = "_id";
-            public static final String LOGIN_LOGADO = "login_logado";
-            public static final String SENHA_LOGADO = "senha_logado";
+    public static class Perfis {
+        public static final String TABELA_PERFIS = "perfis";
+        public static final String ID_USUARIO = "usuario";
+        public static final String ID_CLIENTE = "cliente";
+        public static final String ID_VENDEDOR = "vendedor";
+        public static final String ID_AGENTE = "agente";
+    }
 
 
-            public static final String[] COLUNAS_SESSAO = new String[]{
-                    _ID, LOGIN_LOGADO, SENHA_LOGADO
-            };
-        }
 
 }
