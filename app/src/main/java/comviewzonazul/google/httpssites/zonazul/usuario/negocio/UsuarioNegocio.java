@@ -44,4 +44,7 @@ public class UsuarioNegocio {
     public void cadastro(Usuario usuario){
         usuarioDAO.salvarUsuario(usuario);
     }
+
+
 }
+

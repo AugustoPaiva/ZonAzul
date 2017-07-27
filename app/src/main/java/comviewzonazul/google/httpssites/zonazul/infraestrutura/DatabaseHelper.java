@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, BANCO_DADOS, null, VERSAO);
     }
-    
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Tabela de usuarios
@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String NUMERO = "numero";
         public static final String CIDADE = "cidade";
         public static final String[] COLUNAS_CLIENTES = new String[]{
-                _ID, SALDO,USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE,
+                _ID, SALDO, USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE,
         };
     }
 
@@ -68,7 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ID, ID_USUARIO, ID_PERFIL,
         };
     }
-
 
 
 }

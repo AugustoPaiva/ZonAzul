@@ -83,13 +83,13 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     }
 
     public void cadastro(View view){
-       if (validacoes()){
-           Intent intent = new Intent();
-           intent.setClass(this, EscolhaPerfilActivity.class);
-           startActivity(intent);
-           Mensagem.Msg(this, getString(R.string.msg_Cadastrado));
-           finish();
-       }
+        if (validacoes()){
+            Intent intent = new Intent();
+            intent.setClass(this, EscolhaPerfilActivity.class);
+            startActivity(intent);
+            Mensagem.Msg(this, getString(R.string.msg_Cadastrado));
+            finish();
+        }
     }
 
     public void voltar(View view){
@@ -106,3 +106,4 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         finish();
     }
 }
+
