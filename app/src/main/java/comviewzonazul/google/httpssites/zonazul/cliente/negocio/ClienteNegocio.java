@@ -18,7 +18,6 @@ public class ClienteNegocio {
     }
     public boolean retornarClienteEmail(){
 
-
         return clienteDAO.buscarClienteEmail();
     }
     public void cadastro(){

@@ -37,6 +37,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_cliente2);
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         login_usuario = preferences.getString("LOGIN", null);
+        senha_usuario = preferences.getString("SENHA", null);
 
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
@@ -46,21 +47,30 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         txt_cidade = (EditText) findViewById(R.id.txt_cidade);
     }
 
-    public void chamarID(){ ///A GUI ESTA LIGANDO COM O DAO, NAO É PERMITIDO!!!!
+    public void chamarID(){
         Usuario usuario = new Usuario(login_usuario,senha_usuario);
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
         id = usuarioNegocio.pegarId();
     }
 
-    public void validacoes(){
-        cadastroCliente();
+    public boolean validacoes(){
+        if (cadastroCliente()){
+
+
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public void cadastroCliente() {
+    public boolean cadastroCliente() {
         montarObjetos();
         clienteNegocio = new ClienteNegocio(context, cliente);
-        if ((clienteNegocio.retornarClienteEmail())) {
+        if ((!clienteNegocio.retornarClienteEmail())) {
             clienteNegocio.cadastro();
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -77,7 +87,14 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     }
 
     public void cadastro(View view){
-       validacoes();
+       if (validacoes()){
+           Intent intent = new Intent();
+           intent.setClass(this, EscolhaPerfilActivity.class);
+           startActivity(intent);
+           Mensagem.Msg(this, getString(R.string.msg_Cadastrado));
+
+           finish();
+       }
 
     }
 

@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor     = sharedPreferences.edit();
                     editor.putBoolean(MANTER_CONECTADO, true);
                     editor.putString("LOGIN",usuario);
-                    //editor.putString("SENHA",senha);
+                    editor.putString("SENHA",senha);
                     ChamarMainActivity();
                     editor.commit();
                 }
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor     = sharedPreferences.edit();
                     editor.putString("LOGIN",usuario);
-                    //editor.putString("SENHA",senha);
+                    editor.putString("SENHA",senha);
                     ChamarMainActivity();
                     editor.commit();
 
