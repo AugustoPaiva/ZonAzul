@@ -59,8 +59,10 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     public void cadastroCliente() {
         montarObjetos();
         clienteNegocio = new ClienteNegocio(context, cliente);
-        if ((clienteNegocio.retornarClienteEmail())) {
+        if (!(clienteNegocio.retornarClienteEmail())) {
+            
             clienteNegocio.cadastro();
+
         }
     }
 

@@ -51,6 +51,7 @@ public class ClienteDAO {
     public void salvarCliente(){
         ContentValues valores = new ContentValues();
 
+        valores.put(DatabaseHelper.Clientes.SALDO, "0");
         valores.put(DatabaseHelper.Clientes.EMAIL, cliente.getEmail());
         valores.put(DatabaseHelper.Clientes.CEP, cliente.getEndereco().getCep());
         valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());

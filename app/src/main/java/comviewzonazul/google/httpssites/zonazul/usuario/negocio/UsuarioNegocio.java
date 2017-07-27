@@ -16,8 +16,6 @@ public class UsuarioNegocio {
     public UsuarioNegocio(Context context,Usuario usuario_){
         usuarioDAO = new UsuarioDAO(context,usuario_);
         usuario = usuario_;
-
-
     }
 
     public boolean retornarUsuario(String login, String senha){ // FAZER COM QUE ESSA FUNÇÃO RETORNE TUDO INCLUSIVE O ID
@@ -32,7 +30,6 @@ public class UsuarioNegocio {
         String login = usuario.getLogin();
         Boolean retorno = usuarioDAO.buscarUsuarioPorLogin(login);
         return retorno;
-
     }
 
     public int pegarId(){
@@ -42,4 +39,7 @@ public class UsuarioNegocio {
     public void cadastro(Usuario usuario){
         usuarioDAO.salvarUsuario(usuario);
     }
+
+
 }
+
