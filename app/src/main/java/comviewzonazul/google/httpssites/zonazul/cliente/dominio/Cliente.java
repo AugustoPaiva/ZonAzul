@@ -11,8 +11,6 @@ public class Cliente {
     public double saldo = 0;
     public Endereco endereco;
 
-
-
     public Cliente(int id_, String email_, Endereco endereco_){
         id = id_;
         email = email_;

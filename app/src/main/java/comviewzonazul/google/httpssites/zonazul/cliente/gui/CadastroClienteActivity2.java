@@ -30,7 +30,6 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
     int id;
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +54,6 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
 
     public boolean validacoes(){
         if (cadastroCliente()){
-
-
             return true;
         }else{
             return false;
@@ -83,7 +80,6 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         String cidade = txt_cidade.getText().toString();
         endereco = new Endereco(numero,complemento,cep,cidade);
         cliente = new Cliente(email,endereco,id);
-
     }
 
     public void cadastro(View view){
@@ -92,12 +88,9 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
            intent.setClass(this, EscolhaPerfilActivity.class);
            startActivity(intent);
            Mensagem.Msg(this, getString(R.string.msg_Cadastrado));
-
            finish();
        }
-
     }
-
 
     public void voltar(View view){
         Intent intent = new Intent();

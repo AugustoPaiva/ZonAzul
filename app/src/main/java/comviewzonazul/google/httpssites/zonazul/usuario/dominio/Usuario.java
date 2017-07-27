@@ -25,7 +25,6 @@ public class Usuario {
         this.senha = senha;
     }
 
-
     public Integer get_id() {
         return _id;
     }

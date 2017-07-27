@@ -5,6 +5,7 @@ package comviewzonazul.google.httpssites.zonazul.cliente.dominio;
  */
 
 public class Endereco {
+
     public String numero,complemento,cep,cidade;
 
     public Endereco(){

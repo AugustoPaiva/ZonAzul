@@ -12,7 +12,6 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +19,6 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     }
 
     public void cliente(View view){ //LEMBRAR DE COLOCAR UMA VERIFICAÇÃO DE SE JA TEM UM CLIENTE CADASTRADO.
-
         Intent intent = new Intent();
         intent.setClass(this, CadastroClienteActivity2.class);
         startActivity(intent);

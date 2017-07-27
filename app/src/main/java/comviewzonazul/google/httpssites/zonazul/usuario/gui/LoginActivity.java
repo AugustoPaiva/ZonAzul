@@ -26,11 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_login);
-
-
-
         edtUsuario   = (EditText) findViewById(R.id.login_edtUsuario);
         edtSenha     = (EditText) findViewById(R.id.login_edtSenha);
         ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
@@ -40,18 +36,12 @@ public class LoginActivity extends AppCompatActivity {
         if (conectado){
             ChamarMainActivity();
         }
-
-
-        }
-
-
-
+    }
 
     public void cadastro(View view){
         startActivity(new Intent(this, CadUsuarioActivity.class));
         finish();
         //setContentView(R.layout.activity_cad_usuario);
-
     }
 
     public void logar(View view){
@@ -88,9 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("SENHA",senha);
                     ChamarMainActivity();
                     editor.commit();
-
                 }
-
             } else {
                 Mensagem.Msg(this, getString(R.string.msg_login_incorreto));
             }
@@ -102,7 +90,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(this, EscolhaPerfilActivity.class));
         finish();
     }
-
-
-
 }

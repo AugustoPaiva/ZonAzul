@@ -24,14 +24,15 @@ public class CadUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cad_usuario);
-
         edtNome = (EditText) findViewById(R.id.usuario_edtNome);
         edtLogin = (EditText) findViewById(R.id.usuario_edtLogin);
         edtSenha = (EditText) findViewById(R.id.usuario_edtSenha);
     }
+
     public void sair(View view){
         startActivity(new Intent(this, LoginActivity.class));
     }
+
     public void salvar(View view){
 
         boolean validacao = true;
@@ -59,6 +60,7 @@ public class CadUsuarioActivity extends AppCompatActivity {
             fazerCadastro(nome,login,senha);
         }
     }
+
     public void fazerCadastro(String nome,String login,String senha){
         Context context = getApplicationContext();
 

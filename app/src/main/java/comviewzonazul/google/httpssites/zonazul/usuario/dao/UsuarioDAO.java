@@ -62,7 +62,6 @@ public class UsuarioDAO {
     }
 
 
-
     public boolean removerUsuario(int id) {
         return getDatabase().delete(DatabaseHelper.Usuarios.TABELA,
                 "_id = ?", new String[]{Integer.toString(id)}) > 0;
@@ -82,7 +81,6 @@ public class UsuarioDAO {
     public boolean buscarUsuarioPorLogin(String login) {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 DatabaseHelper.Usuarios.COLUNAS, "login = ?", new String[]{login}, null, null, null);
-
         if (!(cursor.moveToFirst())) { //quer dizer que não ha nada dentro do cursor
             cursor.close();
             return true;

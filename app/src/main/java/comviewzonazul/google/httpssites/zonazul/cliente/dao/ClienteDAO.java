@@ -17,10 +17,6 @@ import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import util.Mensagem;
 
-/**
- * Created by Augusto on 24/07/17.
- */
-
 public class ClienteDAO {
 
     private DatabaseHelper databaseHelper;

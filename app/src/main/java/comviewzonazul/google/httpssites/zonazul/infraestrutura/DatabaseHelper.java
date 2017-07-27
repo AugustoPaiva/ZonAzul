@@ -39,8 +39,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String NOME = "nome";
         public static final String LOGIN = "login";
         public static final String SENHA = "senha";
-
-
         public static final String[] COLUNAS = new String[]{
                 _ID, NOME, LOGIN, SENHA
         };
@@ -56,8 +54,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COMPLEMENTO = "complemento";
         public static final String NUMERO = "numero";
         public static final String CIDADE = "cidade";
-
-
         public static final String[] COLUNAS_CLIENTES = new String[]{
                 _ID, SALDO,USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE,
         };
@@ -68,7 +64,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String ID = "id";
         public static final String ID_USUARIO = "usuario";
         public static final String ID_PERFIL = "perfil";
-
         public static final String[] COLUNAS_PERFIS = new String[]{
                 ID, ID_USUARIO, ID_PERFIL,
         };
