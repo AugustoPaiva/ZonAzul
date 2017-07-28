@@ -14,6 +14,10 @@ public class ClienteNegocio {
     public ClienteDAO clienteDAO;
     Cliente cliente;
 
+    public ClienteNegocio(Context context){
+        clienteDAO = new ClienteDAO(context);
+    }
+
     public ClienteNegocio(Context context, Cliente cliente_){
         clienteDAO = new ClienteDAO(context,cliente_);
         cliente = cliente_;

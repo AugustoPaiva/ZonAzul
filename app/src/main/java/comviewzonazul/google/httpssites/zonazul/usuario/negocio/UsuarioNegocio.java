@@ -45,6 +45,13 @@ public class UsuarioNegocio {
         usuarioDAO.salvarUsuario(usuario);
     }
 
-
+    public boolean verificaCliente(){
+        usuario.set_id(usuarioDAO.retornarId(usuario.getLogin()));
+        if(usuarioDAO.existeCliente(usuario.get_id())){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 

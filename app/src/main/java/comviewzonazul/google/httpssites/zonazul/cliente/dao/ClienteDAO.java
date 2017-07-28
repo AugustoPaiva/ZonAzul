@@ -23,6 +23,10 @@ public class ClienteDAO {
     private SQLiteDatabase database;
     Cliente cliente;
 
+    public ClienteDAO(Context context){
+        databaseHelper = new DatabaseHelper(context);
+    }
+
     public ClienteDAO(Context context, Cliente cliente_){
         databaseHelper = new DatabaseHelper(context);
         cliente = cliente_;
@@ -53,14 +57,15 @@ public class ClienteDAO {
         valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
-        long id_cliente = getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
+        getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
         salvarPerfil();
     }
 
     public void salvarPerfil(){
         ContentValues valores = new ContentValues();
-        valores.put(DatabaseHelper.Perfis.ID_USUARIO, cliente.getUser_id());
-        valores.put(DatabaseHelper.Perfis.ID_PERFIL, 1);
+        valores.put(DatabaseHelper.Perfis.ID_USUARIO, Integer.toString(cliente.getUser_id()));
+        valores.put(DatabaseHelper.Perfis.ID_PERFIL, "1");
+        getDatabase().insert(DatabaseHelper.Perfis.TABELA_PERFIS, null, valores);
     }
 
 

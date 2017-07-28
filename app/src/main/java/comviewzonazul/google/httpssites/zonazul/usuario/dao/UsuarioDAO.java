@@ -89,6 +89,7 @@ public class UsuarioDAO {
         return false;
     }
 
+
     public Usuario existeUsuario(String login, String senha) {  //antes se chamava "logar"
         Usuario usuario = new Usuario(login, senha);
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
@@ -97,6 +98,17 @@ public class UsuarioDAO {
             return usuario;
         }
         return null;
+    }
+
+
+    public boolean existeCliente(int idusuario) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS,
+                null, "usuario = ? AND perfil = ?", new String[]{Integer.toString(idusuario),"1"}, null, null, null);
+        if (cursor.moveToFirst()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public void fechar() {

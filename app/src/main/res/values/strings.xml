@@ -18,7 +18,7 @@
     <!-- Mensagens -->
     <string name="msg_login_incorreto"> Usuário ou senha inválidos</string>
     <string name="title_activity_cad_usuario">CadUsuarioActivity</string>
-    <string name="mensagem_cadastro">Registro cadastrado com sucesso.</string>
+    <string name="mensagem_cadastro">Cadastrado com sucesso.</string>
     <string name="mensagem_atualizar">Registro atualizado com sucesso.</string>
     <string name="mensagem_erro">Este login ja esta em uso, tente outro.</string>
 
@@ -28,4 +28,5 @@
     <string name="usuario_txtSenha"> Senha:</string>
     <string name="title_activity_cliente_compra">ClienteCompra</string>
     <string name="msg_Cadastrado">\"Cliente cadastrado\"</string>
+    <string name="title_activity_principal_cliente">PrincipalClienteActivity</string>
 </resources>
