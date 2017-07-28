@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<android.support.design.widget.CoordinatorLayout-->
+
+    <android.widget.RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.CompraActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout">
+
+    </android.support.design.widget.AppBarLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Compre aqui seus créditos."
+            android:textColor="@color/colorAccent2"
+            android:textSize="28dp"
+            android:layout_marginTop="11dp"
+            android:layout_below="@+id/appBarLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Digite o valor a ser inserido em reais."
+            android:textColor="@color/colorAccent2"
+            android:layout_marginTop="46dp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Escolha a forma de pagamento:"
+            android:textColor="@color/colorAccent2"
+            android:textSize="22dp"
+            android:layout_marginTop="26dp"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Cartão de crédito"
+            android:layout_marginTop="53dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:onClick="cartao"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Boleto bancário"
+            android:layout_marginTop="42dp"
+            android:layout_below="@+id/button"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button"
+            android:onClick="boleto"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Candelar"
+            android:layout_marginBottom="34dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2"
+            android:onClick=""/>
+
+</android.widget.RelativeLayout>

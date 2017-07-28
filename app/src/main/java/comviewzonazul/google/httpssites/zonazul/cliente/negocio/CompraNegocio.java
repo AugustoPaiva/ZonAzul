@@ -15,6 +15,7 @@ public class CompraNegocio {
     long credito;
 
     CompraDAO compraDAO;
+
     public CompraNegocio(Context context, long credito_, Cliente cliente){
         compraDAO = new CompraDAO(context);
         idCliente = cliente.getId();

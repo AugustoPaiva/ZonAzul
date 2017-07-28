@@ -29,6 +29,10 @@ public class UsuarioNegocio {
         }
     }
 
+    public Usuario pegaUsuario(String login, String senha){
+        return usuarioDAO.existeUsuario(login,senha);
+    }
+
 
     public boolean retornarUsuarioLogin(Usuario usuario){
         String login = usuario.getLogin();

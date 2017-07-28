@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2;
+import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 

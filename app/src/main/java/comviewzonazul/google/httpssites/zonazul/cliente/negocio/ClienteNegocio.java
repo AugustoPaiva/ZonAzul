@@ -27,6 +27,10 @@ public class ClienteNegocio {
         return clienteDAO.buscarClienteEmail();
     }
 
+    public Cliente retornaCliente(int idUsuario){
+        return clienteDAO.BuscarClientePorUsuario(idUsuario);
+    }
+
     public void cadastro(){
         clienteDAO.salvarCliente();
     }

@@ -95,6 +95,8 @@ public class UsuarioDAO {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 null, "LOGIN = ? AND SENHA = ?", new String[]{login, senha}, null, null, null);
         if (cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndex("_id"));
+            usuario.set_id(id);
             return usuario;
         }
         return null;

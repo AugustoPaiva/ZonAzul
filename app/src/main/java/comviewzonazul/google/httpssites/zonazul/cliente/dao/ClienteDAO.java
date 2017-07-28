@@ -10,6 +10,7 @@ import android.provider.ContactsContract;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
+import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.PerfisAtivos;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
@@ -69,11 +70,23 @@ public class ClienteDAO {
     }
 
 
-    public Cliente getCliente() {
 
+
+    public Cliente BuscarClientePorUsuario(int id){
+                Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES, DatabaseHelper.Clientes.COLUNAS_CLIENTES, "USUARIO = ?", new String[]{Integer.toString(id)}, null, null, null);
+                Endereco endereco = new Endereco(
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.NUMERO)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.COMPLEMENTO)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CEP)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CIDADE))
+        );
+        Cliente cliente = new Cliente(
+                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes._ID)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.EMAIL)),
+                endereco
+        );
         return cliente;
     }
-
 
 
 

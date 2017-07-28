@@ -26,6 +26,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Associações
         db.execSQL("create table Perfis(id integer primary key autoincrement, "
                 + "usuario text not null, perfil text not null)");
+        //tabela compras
+        db.execSQL("create table Compras(_id integer primary key autoincrement, "
+                + "cliente text not null, valor text not null, data text not null, pagamento text not null)");
+
     }
 
     @Override
@@ -66,6 +70,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String ID_PERFIL = "perfil";
         public static final String[] COLUNAS_PERFIS = new String[]{
                 ID, ID_USUARIO, ID_PERFIL,
+        };
+    }
+
+    public static class Compras{
+        public static final String TABELA_COMPRAS = "compras";
+        public static final String ID = "id";
+        public static final String ID_CLIENTE = "cliente";
+        public static final String VALOR = "valor";
+        public static final String DATA = "data";
+        public static final String PAGAMENTO = "pagamento";
+        public static final String[] COLUNAS_COMPRA = new String[]{
+                ID, ID_CLIENTE, VALOR, DATA, PAGAMENTO
         };
     }
 

@@ -28,7 +28,7 @@
         <!-- <activity android:name=".usuario.gui.CadUsuarioActivity" /> -->
 
         <activity
-            android:name=".usuario.gui.PrincipalClienteActivity"
+            android:name=".cliente.gui.PrincipalClienteActivity"
             android:label="@string/title_activity_principal_cliente"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
