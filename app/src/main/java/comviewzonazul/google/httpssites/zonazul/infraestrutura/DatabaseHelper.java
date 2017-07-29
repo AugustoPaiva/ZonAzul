@@ -10,7 +10,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int VERSAO = 1;
 
     public DatabaseHelper(Context context) {
+
         super(context, BANCO_DADOS, null, VERSAO);
+        
+
     }
 
     @Override
@@ -20,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "nome text not null, login text not null, senha text not null)");
         // Tabela de clientes
         db.execSQL("create table Clientes(_id integer primary key autoincrement, "
-                + "saldo text not null, usuarios text not null, email text not null, cep text not null, complemento text not null, numero text not null, cidade text not null, id_usuario integer)");
+                + "saldo text not null, usuario text not null, email text not null, cep text not null, complemento text not null, numero text not null, cidade text not null, id_usuario integer)");
         //Cadastrar um usuario
         db.execSQL("insert into Usuarios(nome, login, senha) values('Admin', 'admin','123')");
         //Associações

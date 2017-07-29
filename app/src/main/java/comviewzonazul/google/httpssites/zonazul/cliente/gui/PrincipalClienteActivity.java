@@ -1,5 +1,6 @@
  package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
@@ -21,7 +23,8 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
  public class PrincipalClienteActivity extends AppCompatActivity {
      private static final String MANTER_CONECTADO = "manter_conectado";
      private static final String PREFERENCE_NAME = "LoginActivityPreferences";
-     Usuario usuario = new Usuario();;
+     Usuario usuario = new Usuario();
+     Usuario user = new Usuario();
      Cliente cliente = new Cliente();
      TextView nomeUser, saldo;
 
@@ -33,9 +36,9 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
         usuario.setLogin(preferences.getString("LOGIN", null));
         usuario.setSenha(preferences.getString("SENHA", null));
         encontraCliente();
-        encontrarItens();
-        editarItens();
-        //setContentView(R.layout.activity_principal_cliente);
+        //encontrarItens();
+        //editarItens();
+        setContentView(R.layout.activity_principal_cliente);
     }
 
     public void encontraCliente(){
@@ -46,7 +49,7 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
     }
 
     public void editarItens(){
-        nomeUser.setText(usuario.getNome()+"");
+        nomeUser.setText(user.getNome()+"");
         saldo.setText(cliente.getSaldo()+"");
     }
 
