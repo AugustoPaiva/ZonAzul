@@ -75,27 +75,26 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_codSegurança"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="52dp"
+        android:text="voltar"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/txt_codSegurança"
-        android:layout_marginBottom="34dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp"
-        android:text="voltar" />
+        android:layout_marginStart="44dp"
+        android:onClick="voltar"/>
 
     <Button
         android:id="@+id/confirmar"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="Confirmar"
-
+        android:onClick="confirmar"
         android:layout_alignBaseline="@+id/button4"
         android:layout_alignBottom="@+id/button4"
-        android:layout_toRightOf="@+id/txt_codSegurança"
-        android:layout_toEndOf="@+id/txt_codSegurança"
-        android:onClick="confirmar"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="51dp" />
 
     <EditText
         android:id="@+id/txt_ano"

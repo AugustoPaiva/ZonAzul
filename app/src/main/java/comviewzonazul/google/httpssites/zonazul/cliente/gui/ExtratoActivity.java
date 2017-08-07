@@ -13,6 +13,7 @@ import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivit
 
 public class ExtratoActivity extends AppCompatActivity {
     private CheckBox ckbhistorico;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,18 @@ public class ExtratoActivity extends AppCompatActivity {
 
     public void historico(View view){
         startActivity(new Intent(this, Listar.class));
+        finish();
+    }
+
+    public void voltar(View view){
+        startActivity(new Intent(this, PrincipalClienteActivity.class));
+        finish();
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
         finish();
     }
 }

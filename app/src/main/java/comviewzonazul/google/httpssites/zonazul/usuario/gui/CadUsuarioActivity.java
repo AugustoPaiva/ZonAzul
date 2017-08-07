@@ -75,4 +75,11 @@ public class CadUsuarioActivity extends AppCompatActivity {
             Mensagem.Msg(this, getString(R.string.mensagem_erro));
         }
     }
+
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.setClass(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

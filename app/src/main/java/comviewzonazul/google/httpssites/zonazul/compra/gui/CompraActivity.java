@@ -46,8 +46,17 @@ public class CompraActivity extends AppCompatActivity {
         }
     }
 
-    public void onBackPressed(View view){
-        startActivity(new Intent(this, PrincipalClienteActivity.class));
+    public void voltar(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
         finish();
     }
 }

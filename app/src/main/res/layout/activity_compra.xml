@@ -88,10 +88,10 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Candelar"
-            android:layout_marginBottom="34dp"
+            android:layout_marginBottom="35dp"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/button2"
             android:layout_alignStart="@+id/button2"
-            android:onClick=""/>
+            android:onClick="voltar"/>
 
 </android.widget.RelativeLayout>

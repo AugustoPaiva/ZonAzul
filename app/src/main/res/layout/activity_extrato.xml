@@ -32,4 +32,14 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="historico"/>
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="voltar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:text="voltar" />
 </RelativeLayout>

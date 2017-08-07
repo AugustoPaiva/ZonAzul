@@ -40,18 +40,21 @@
             android:id="@+id/login_ckbConectado"
             android:text="@string/login_ckbConectado"
             android:layout_marginBottom="10dp"/>
+
         <Button
             android:id="@+id/login_btnEntrar"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/login_btnEntrar"
-            android:onClick="logar"/>
+            android:onClick="logar"
+            android:layout_gravity="center"
+            android:text="@string/login_btnEntrar" />
 
         <Button
             android:id="@+id/login_btnCadastrar"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:onClick="cadastro"/>
+            android:layout_gravity="center"
+            android:onClick="cadastro"
+            android:text="Cadastrar" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

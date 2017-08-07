@@ -85,4 +85,18 @@ public class CompraCartaoActivity extends AppCompatActivity {
         startActivity(new Intent(this, PrincipalClienteActivity.class));
         finish();
     }
+
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.setClass(this, CompraActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void voltar(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, CompraActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
