@@ -30,7 +30,19 @@
         <activity
             android:name=".cliente.gui.PrincipalClienteActivity"
             android:label="@string/title_activity_principal_cliente"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".compra.gui.CompraActivity"
+            android:label="@string/title_activity_cliente_compra"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".compra.gui.CompraCartaoActivity"
+            android:label="@string/title_activity_cliente_compra_cartao"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".cliente.gui.ExtratoActivity" />
+        <activity android:name=".cliente.gui.EscolhaExtrato" />
+        <activity android:name=".infraestrutura.Listar" />
+        <activity android:name=".cliente.gui.ExtratoActivity"></activity>
     </application>
 
 </manifest>

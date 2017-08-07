@@ -19,7 +19,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
     private Usuario usuario;
     private int idusuario;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +62,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
 
     public void fazerCadastro(String nome,String login,String senha){
         Context context = getApplicationContext();
-
         Usuario usuario = new Usuario(nome,login,senha);
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
 

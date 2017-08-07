@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/app/src/main/java/comviewzonazul/google/httpssites/zonazul" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/src/main/java/comviewzonazul/google/httpssites/zonazul/cliente/negocio" vcs="Git" />
   </component>
 </project>

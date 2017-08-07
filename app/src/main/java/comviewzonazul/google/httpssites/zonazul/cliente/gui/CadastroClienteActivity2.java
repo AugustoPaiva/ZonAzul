@@ -37,7 +37,6 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         login_usuario = preferences.getString("LOGIN", null);
         senha_usuario = preferences.getString("SENHA", null);
-
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
         txt_cep = (EditText) findViewById(R.id.txt_cep);
@@ -84,6 +83,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
 
     public void cadastro(View view){
         if (validacoes()){
+            cadastroCliente();
             Intent intent = new Intent();
             intent.setClass(this, EscolhaPerfilActivity.class);
             startActivity(intent);

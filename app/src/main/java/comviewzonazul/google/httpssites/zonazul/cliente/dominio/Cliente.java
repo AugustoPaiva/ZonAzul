@@ -1,9 +1,5 @@
 package comviewzonazul.google.httpssites.zonazul.cliente.dominio;
 
-/**
- * Created by root on 23/07/17.
- */
-
 public class Cliente {
     public int id;
     public int user_id;
@@ -11,24 +7,31 @@ public class Cliente {
     public double saldo = 0;
     public Endereco endereco;
 
+    public Cliente(int id_, int user_id_, String email_, Double saldo_, Endereco endereco_){
+        id = id_;
+        user_id = user_id_;
+        email = email_;
+        saldo = saldo_;
+        endereco = endereco_;
+    }
+
     public Cliente(int id_, String email_, Endereco endereco_){
         id = id_;
         email = email_;
         endereco = endereco_;
     }
+
     public Cliente(String email_,  Endereco endereco_, int user_id_){
         email = email_;
         endereco = endereco_;
         user_id = user_id_;
-
     }
+
     public Cliente(String email_){
         email = email_;
-
     }
 
     public Cliente() {
-
     }
 
     public int getId() {
@@ -70,6 +73,4 @@ public class Cliente {
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
-
-
 }

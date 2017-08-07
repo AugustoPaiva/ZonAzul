@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.CompraCartaoActivity">
+    android:background="@drawable/fundo2"
+    tools:context="comviewzonazul.google.httpssites.zonazul.compra.gui.CompraCartaoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirmar dados do cartão"
+        android:textColor="@color/colorAccent2"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txt_numero_cartao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:layout_marginLeft="22dp"
+        android:inputType="number"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:text="Numero do catão"
+        android:layout_below="@+id/textViewNome"
+        android:layout_alignEnd="@+id/txt_ano" />
+
+    <EditText
+        android:id="@+id/txt_nome_titular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:layout_alignLeft="@+id/txt_numero_cartao"
+        android:layout_alignStart="@+id/txt_numero_cartao"
+        android:layout_below="@+id/txt_numero_cartao"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nome do titular" />
+
+
+    <EditText
+        android:id="@+id/txt_mes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:layout_alignLeft="@+id/txt_nome_titular"
+        android:layout_alignStart="@+id/txt_nome_titular"
+        android:layout_below="@+id/txt_nome_titular"
+        android:layout_marginTop="35dp"
+        android:ems="4"
+        android:inputType="number"
+        android:text="mes" />
+
+    <EditText
+        android:id="@+id/txt_codSegurança"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="codigo de segurança"
+        android:layout_below="@+id/txt_mes"
+        android:layout_alignStart="@+id/txt_mes" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_codSegurança"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txt_codSegurança"
+        android:layout_marginBottom="34dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:text="voltar" />
+
+    <Button
+        android:id="@+id/confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_toRightOf="@+id/txt_codSegurança"
+        android:layout_toEndOf="@+id/txt_codSegurança"
+        android:onClick="confirmar"/>
+
+    <EditText
+        android:id="@+id/txt_ano"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_codSegurança"
+        android:layout_centerHorizontal="true"
+        android:ems="4"
+        android:inputType="number"
+        android:text="ano"
+        android:layout_alignTop="@+id/txt_mes" />
+
+
+</RelativeLayout>

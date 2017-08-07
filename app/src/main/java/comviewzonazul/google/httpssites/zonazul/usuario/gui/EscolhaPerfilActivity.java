@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
@@ -16,11 +18,6 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     private static final String MANTER_CONECTADO = "manter_conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
     private Usuario usuario = new Usuario() ;
-
-
-    // ESCOLHAPERFILACTIVITY
-    // USUARIONEGOCIO
-    // USUARIODAO
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +31,7 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     public void cliente(View view){
         Context context = getApplicationContext();
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
-        if (usuarioNegocio.verificaCliente()){
+        if ((usuarioNegocio.verificaCliente())){
             Intent intent = new Intent();
             intent.setClass(this, PrincipalClienteActivity.class);
             startActivity(intent);
@@ -58,6 +55,4 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-
 }

@@ -5,10 +5,6 @@ import android.content.Context;
 import comviewzonazul.google.httpssites.zonazul.cliente.dao.ClienteDAO;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 
-/**
- * Created by Augusto on 24/07/17.
- */
-
 public class ClienteNegocio {
 
     public ClienteDAO clienteDAO;

@@ -35,32 +35,33 @@
         android:layout_below="@+id/appBarLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewSaldo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saldo de creditos"
+        android:text="s"
         android:textColor="@color/colorAccent2"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/textViewNome"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
         android:textSize="26dp"
         android:gravity="center"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_below="@+id/textViewNome"
+        android:layout_alignRight="@+id/cliente_btnEstacionar"
+        android:layout_alignEnd="@+id/cliente_btnEstacionar" />
 
     <ImageButton
         android:id="@+id/bt_comprar"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_below="@+id/textViewSaldo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
         android:onClick="comprar"
-        />
+        android:layout_alignTop="@+id/textViewSaldo"
+        android:layout_alignLeft="@+id/cliente_btnSair"
+        android:layout_alignStart="@+id/cliente_btnSair"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp" />
 
     <Button
         android:id="@+id/cliente_btnEstacionar"
@@ -68,39 +69,35 @@
         android:layout_height="wrap_content"
         android:text="Estacionar"
         android:layout_below="@+id/bt_comprar"
-        android:layout_alignLeft="@+id/cliente_btnTempoRestante"
-        android:layout_alignStart="@+id/cliente_btnTempoRestante"
-        android:layout_marginTop="24dp"
-        />
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/cliente_btnPontoDeVendas"
+        android:id="@+id/cliente_btnExtrato"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Ponto de Vendas"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
+        android:text="Historico"
+        android:onClick="extrato"
         android:layout_below="@+id/cliente_btnTempoRestante"
-        android:layout_alignLeft="@+id/cliente_btnConfiguracoes"
-        android:layout_alignStart="@+id/cliente_btnConfiguracoes" />
+        android:layout_alignStart="@+id/cliente_btnTempoRestante" />
 
     <Button
         android:id="@+id/cliente_btnTempoRestante"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Tempo Restante"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/cliente_btnEstacionar"
-        android:layout_alignLeft="@+id/cliente_btnPontoDeVendas"
-        android:layout_alignStart="@+id/cliente_btnPontoDeVendas"
-        android:layout_marginTop="33dp" />
+        android:layout_alignStart="@+id/cliente_btnEstacionar" />
 
     <Button
         android:id="@+id/cliente_btnConfiguracoes"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Configurações"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/cliente_btnPontoDeVendas"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/cliente_btnExtrato"
+        android:layout_alignStart="@+id/cliente_btnExtrato" />
 
     <Button
         android:id="@+id/cliente_btnSair"

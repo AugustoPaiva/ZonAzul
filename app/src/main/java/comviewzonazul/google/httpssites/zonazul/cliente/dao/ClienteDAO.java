@@ -6,32 +6,34 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
-
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
-import comviewzonazul.google.httpssites.zonazul.infraestrutura.PerfisAtivos;
-import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
-import util.Mensagem;
+import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
 
 public class ClienteDAO {
 
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase database;
     Cliente cliente;
+    UsuarioDAO usuarioDAO;
+    String login;
+    Context context_;
+    String PREFERENCE_NAME = "LoginActivityPreferences";
 
     public ClienteDAO(Context context){
+        context_ = context;
         databaseHelper = new DatabaseHelper(context);
+        usuarioDAO = new UsuarioDAO(context);
     }
 
     public ClienteDAO(Context context, Cliente cliente_){
+        context_ = context;
         databaseHelper = new DatabaseHelper(context);
         cliente = cliente_;
     }
+
     private SQLiteDatabase getDatabase(){
         if (database == null){
             database = databaseHelper.getWritableDatabase();
@@ -39,67 +41,75 @@ public class ClienteDAO {
         return database;
     }
 
-    public boolean buscarClienteEmail(){ //Arrumar um jeito dessa função retornar usuario e nao bool(para ajudar no negocio)
+    public void retornoLogin(){
+        SharedPreferences prefs = context_.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE);
+        login= prefs.getString("LOGIN", null);
+    }
+
+    public boolean buscarClienteEmail(){
         String email = cliente.getEmail();
         Cursor cursor = getDatabase().query("clientes", new String[]{"*"}, "email=?", new String[]{email}, null, null, null, null);
-        if (cursor.moveToNext()) {
+        if (cursor.getCount() == 0) {
             cursor.close();
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public void salvarCliente(){
+        retornoLogin();
         ContentValues valores = new ContentValues();
+        int id_usuario = retornarId(login);
         valores.put(DatabaseHelper.Clientes.SALDO, "0");
-        valores.put(DatabaseHelper.Clientes.USUARIO, cliente.getUser_id());
         valores.put(DatabaseHelper.Clientes.EMAIL, cliente.getEmail());
         valores.put(DatabaseHelper.Clientes.CEP, cliente.getEndereco().getCep());
         valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
-        getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
-        salvarPerfil();
-    }
-
-    public void salvarPerfil(){
-        ContentValues valores = new ContentValues();
-        valores.put(DatabaseHelper.Perfis.ID_USUARIO, Integer.toString(cliente.getUser_id()));
-        valores.put(DatabaseHelper.Perfis.ID_PERFIL, "1");
-        getDatabase().insert(DatabaseHelper.Perfis.TABELA_PERFIS, null, valores);
+        valores.put(DatabaseHelper.Clientes.USUARIO, id_usuario);
+        long id_cliente = getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
+        ContentValues cv = new ContentValues();
+        cv.put(DatabaseHelper.Perfis.ID_USUARIO,id_usuario);
+        cv.put(DatabaseHelper.Perfis.ID_PERFIL,"1");
+        getDatabase().update(DatabaseHelper.Perfis.TABELA_PERFIS, cv, "usuario="+id_usuario, null);
+        getDatabase().close();
     }
 
     public Cliente BuscarClientePorUsuario(int id){
-        Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES, DatabaseHelper.Clientes.COLUNAS_CLIENTES, "USUARIO = ?", new String[]{Integer.toString(id)}, null, null, null);
-        Endereco endereco = new Endereco(
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.NUMERO)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.COMPLEMENTO)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CEP)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CIDADE))
-        );
-        Cliente cliente = new Cliente(
-                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes._ID)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.EMAIL)),
-                endereco
-        );
-        return cliente;
-    }
+        Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES, DatabaseHelper.Clientes.COLUNAS_CLIENTES, DatabaseHelper.Clientes.USUARIO + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+        if(cursor != null) {
+            cursor.moveToFirst();
+            Endereco endereco = new Endereco(
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.NUMERO)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.COMPLEMENTO)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CEP)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CIDADE))
+            );
+            Cliente cliente = new Cliente(
+                    cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes._ID)),
+                    cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes.USUARIO)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.EMAIL)),
+                    cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Clientes.SALDO)),
+                    endereco
 
+            );
 
-
-
-    /*
-    public Usuario AcharLinha() {
-        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
-                DatabaseHelper.Usuarios.COLUNAS, "_id = ?", new String[]{Integer.toString(cliente.getId())}, null, null, null);
-        if (cursor.moveToNext()) {
-            Usuario model = criarUsuario(cursor);
-            cursor.close();
-            return model;
+            return cliente;
         }
         return null;
     }
-    */
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public  int retornarId(String login_) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA, DatabaseHelper.Usuarios.COLUNAS, DatabaseHelper.Usuarios.LOGIN + "=?", new String[]{ login_ }, null, null, null);
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+        int id = Integer.parseInt(cursor.getString(0));
+        return id;
+    }
 }
+
