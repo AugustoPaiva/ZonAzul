@@ -42,7 +42,8 @@
         <activity android:name=".cliente.gui.ExtratoActivity" />
         <activity android:name=".cliente.gui.EscolhaExtrato" />
         <activity android:name=".infraestrutura.Listar" />
-        <activity android:name=".cliente.gui.ExtratoActivity"></activity>
+        <activity android:name=".cliente.gui.EditarClienteActivity" />
+        <activity android:name=".cliente.gui.perfil_cliente"></activity>
     </application>
 
 </manifest>

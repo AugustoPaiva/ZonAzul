@@ -99,7 +99,7 @@
         android:layout_marginTop="23dp"
         android:layout_below="@+id/cliente_btnExtrato"
         android:layout_alignStart="@+id/cliente_btnExtrato"
-        android:onClick="configuracoes"/>
+        android:onClick="editar"/>
 
     <Button
         android:id="@+id/cliente_btnSair"

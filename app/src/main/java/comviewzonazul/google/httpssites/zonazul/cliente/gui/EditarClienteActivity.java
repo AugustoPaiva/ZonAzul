@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
@@ -20,14 +19,9 @@ public class EditarClienteActivity extends AppCompatActivity {
 
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
     Usuario usuario = new Usuario();
-    ClienteNegocio clienteNegocio;
     Endereco endereco;
     Cliente cliente;
-    int id;
     EditText editnome, editcidade, editcomplemento, editnumero, editcep, editemail;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +44,6 @@ public class EditarClienteActivity extends AppCompatActivity {
         usuario.setNome(editarnome);
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
         usuarioNegocio.editar(usuario);
-
-
         String editaremail = editemail.getText().toString();
         String editarcep = editcep.getText().toString();
         String editarnumero = editnumero.getText().toString();

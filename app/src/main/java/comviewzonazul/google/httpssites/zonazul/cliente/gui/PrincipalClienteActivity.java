@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
@@ -84,12 +83,12 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
         finish();
     }
 
-    /*public void configuracoes(View view){
-        Intent intent = new Intent();
-        intent.setClass(this, EditarClienteActivity.class);
-        startActivity(intent);
-        finish();
-    }*/
+     public void editar(View view){
+         Intent intent = new Intent();
+         intent.setClass(this, EditarClienteActivity.class);
+         startActivity(intent);
+         finish();
+     }
 }
 
 
