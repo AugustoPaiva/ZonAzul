@@ -2,11 +2,10 @@ package comviewzonazul.google.httpssites.zonazul.cliente.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import comviewzonazul.google.httpssites.zonazul.R;
+
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
@@ -69,7 +68,7 @@ public class ClienteDAO {
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
         valores.put(DatabaseHelper.Clientes.USUARIO, id_usuario);
-        long id_cliente = getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
+        getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.Perfis.ID_USUARIO,id_usuario);
         cv.put(DatabaseHelper.Perfis.ID_PERFIL,"1");
@@ -114,18 +113,18 @@ public class ClienteDAO {
         return id;
     }
 
-    public void editar(){
+    public void editar(Cliente cliente){
         retornoLogin();
         ContentValues valores = new ContentValues();
         int id_usuario = retornarId(login);
+        valores.put(DatabaseHelper.Clientes.SALDO, cliente.getSaldo());
         valores.put(DatabaseHelper.Clientes.EMAIL, cliente.getEmail());
         valores.put(DatabaseHelper.Clientes.CEP, cliente.getEndereco().getCep());
         valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
-        getDatabase().update(DatabaseHelper.Clientes.TABELA_CLIENTES,valores,"_id="+id_usuario,null);
-
-
-
+        valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
+        valores.put(DatabaseHelper.Clientes.USUARIO, id_usuario);
+        getDatabase().update(DatabaseHelper.Clientes.TABELA_CLIENTES,valores,"usuario="+id_usuario,null);
     }
 }
 

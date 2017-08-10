@@ -1,6 +1,5 @@
 package comviewzonazul.google.httpssites.zonazul.usuario.negocio;
 
-import android.content.ContentValues;
 import android.content.Context;
 
 import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
@@ -11,7 +10,7 @@ public class UsuarioNegocio {
     public UsuarioDAO usuarioDAO;
     public Usuario usuario;
 
-    public UsuarioNegocio(Context context,Usuario usuario_){
+    public UsuarioNegocio(Context context, Usuario usuario_){
         usuarioDAO = new UsuarioDAO(context,usuario_);
         usuario = usuario_;
     }
@@ -51,6 +50,10 @@ public class UsuarioNegocio {
 
     public void cadastro(Usuario usuario){
         usuarioDAO.salvarUsuario(usuario);
+    }
+
+    public void editar(Usuario usuario){
+        usuarioDAO.editar(usuario);
     }
 
     public boolean verificaCliente(){

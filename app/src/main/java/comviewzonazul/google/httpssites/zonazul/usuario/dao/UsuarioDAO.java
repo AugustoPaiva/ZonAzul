@@ -2,22 +2,11 @@ package comviewzonazul.google.httpssites.zonazul.usuario.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
-
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class UsuarioDAO {
 
@@ -110,5 +99,15 @@ public class UsuarioDAO {
         }
         int id = Integer.parseInt(cursor.getString(0));
         return id;
+    }
+    public void editar(Usuario usuario) {
+        usuario_ = usuario;
+        ContentValues valores = new ContentValues();
+        int id_usuario = retornarId(usuario.getLogin());
+        valores.put(DatabaseHelper.Usuarios.NOME, usuario.getNome());
+        valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
+        valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
+        getDatabase().update(DatabaseHelper.Usuarios.TABELA, valores,"_id="+id_usuario,null);
+
     }
 }

@@ -31,10 +31,9 @@ public class ClienteNegocio {
         clienteDAO.salvarCliente();
     }
 
-
-
-
-
+    public void editar(Cliente cliente){
+        clienteDAO.editar(cliente);
+    }
 
 
 }
