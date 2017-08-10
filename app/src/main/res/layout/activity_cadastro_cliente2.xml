@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2">
+    tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2"
+    android:background="@drawable/fundo2">
 
     <EditText
         android:id="@+id/txt_email"
@@ -12,19 +13,21 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Email"
+        android:textColorHint="@color/colorAccent2"
+        android:text=""
+        android:hint="Email"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="75dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/textView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginBottom="49dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Endereço"
+        android:textColor="@color/colorAccent2"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="146dp"
         android:layout_above="@+id/txt_cep"
@@ -40,12 +43,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Numero"
+        android:text=""
+        android:hint="Número"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="231dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColorHint="@color/colorAccent2"/>
 
     <EditText
         android:id="@+id/txt_complemento"
@@ -53,13 +57,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Complemento"
+        android:text=""
+        android:hint="Complemento"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="274dp"
-        android:layout_above="@+id/txt_cidade"
-        android:layout_alignParentLeft="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/txt_numero"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="12dp" />
+        android:textColorHint="@color/colorAccent2"/>
 
     <EditText
         android:id="@+id/txt_cidade"
@@ -67,13 +72,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Cidade"
+        android:text=""
+        android:hint="Cidade"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="317dp"
-        android:layout_above="@+id/txt_voltar"
-        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_complemento"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="27dp" />
+        android:layout_marginTop="14dp"
+        android:textColorHint="@color/colorAccent2"/>
 
     <EditText
         android:id="@+id/txt_cep"
@@ -81,13 +87,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="CEP"
+        android:text=""
+        android:hint="CEP"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="188dp"
+        android:layout_marginBottom="21dp"
         android:layout_above="@+id/txt_numero"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="26dp" />
+        android:textColorHint="@color/colorAccent2"
+        />
 
     <Button
         android:id="@+id/txt_voltar"

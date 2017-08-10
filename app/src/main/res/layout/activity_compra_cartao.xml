@@ -28,9 +28,11 @@
         android:textColor="@color/colorAccent2"
         android:layout_marginLeft="22dp"
         android:inputType="number"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="43dp"
         android:ems="10"
-        android:text="Numero do catão"
+        android:text=""
+        android:hint="Número do cartão"
+        android:textColorHint="@color/colorAccent2"
         android:layout_below="@+id/textViewNome"
         android:layout_alignEnd="@+id/txt_ano" />
 
@@ -39,13 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent2"
-        android:layout_alignLeft="@+id/txt_numero_cartao"
-        android:layout_alignStart="@+id/txt_numero_cartao"
-        android:layout_below="@+id/txt_numero_cartao"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="26dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nome do titular" />
+        android:text=""
+        android:hint="Nome do titular"
+        android:textColorHint="@color/colorAccent2"
+        android:layout_below="@+id/txt_numero_cartao"
+        android:layout_alignStart="@+id/txt_numero_cartao" />
 
 
     <EditText
@@ -53,13 +56,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent2"
-        android:layout_alignLeft="@+id/txt_nome_titular"
-        android:layout_alignStart="@+id/txt_nome_titular"
-        android:layout_below="@+id/txt_nome_titular"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="31dp"
         android:ems="4"
         android:inputType="number"
-        android:text="mes" />
+        android:text=""
+        android:hint="Mês"
+        android:textColorHint="@color/colorAccent2"
+        android:layout_below="@+id/txt_nome_titular"
+        android:layout_alignStart="@+id/txt_nome_titular" />
 
     <EditText
         android:id="@+id/txt_codSegurança"
@@ -69,7 +73,9 @@
         android:layout_marginTop="21dp"
         android:ems="10"
         android:inputType="number"
-        android:text="codigo de segurança"
+        android:text=""
+        android:hint="Código de segurança"
+        android:textColorHint="@color/colorAccent2"
         android:layout_below="@+id/txt_mes"
         android:layout_alignStart="@+id/txt_mes" />
 
@@ -101,12 +107,13 @@
         android:layout_width="wrap_content"
         android:textColor="@color/colorAccent2"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txt_codSegurança"
-        android:layout_centerHorizontal="true"
         android:ems="4"
         android:inputType="number"
-        android:text="ano"
-        android:layout_alignTop="@+id/txt_mes" />
+        android:text=""
+        android:hint="Ano"
+        android:textColorHint="@color/colorAccent2"
+        android:layout_above="@+id/txt_codSegurança"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

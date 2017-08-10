@@ -12,6 +12,8 @@ import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.DatabaseHelper;
 import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
 
+
+
 public class ClienteDAO {
 
     private DatabaseHelper databaseHelper;
@@ -110,6 +112,20 @@ public class ClienteDAO {
         }
         int id = Integer.parseInt(cursor.getString(0));
         return id;
+    }
+
+    public void editar(){
+        retornoLogin();
+        ContentValues valores = new ContentValues();
+        int id_usuario = retornarId(login);
+        valores.put(DatabaseHelper.Clientes.EMAIL, cliente.getEmail());
+        valores.put(DatabaseHelper.Clientes.CEP, cliente.getEndereco().getCep());
+        valores.put(DatabaseHelper.Clientes.COMPLEMENTO, cliente.getEndereco().getComplemento());
+        valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
+        getDatabase().update(DatabaseHelper.Clientes.TABELA_CLIENTES,valores,"_id="+id_usuario,null);
+
+
+
     }
 }
 

@@ -83,6 +83,13 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
         startActivity(intent);
         finish();
     }
+
+    /*public void configuracoes(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, EditarClienteActivity.class);
+        startActivity(intent);
+        finish();
+    }*/
 }
 
 

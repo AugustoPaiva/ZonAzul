@@ -14,7 +14,8 @@
         android:layout_height="29dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Usuário"
+        android:text=""
         android:background="@color/colorAccent2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +29,8 @@
         android:layout_height="29dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Senha"
+        android:text=""
+        android:hint="Senha"
         android:background="@color/colorAccent2"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,24 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_ckbConectado"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="145dp"
-        app:layout_constraintVertical_bias="0.007" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não possuí Cadastro?"
-        android:textColor="@color/colorAccent2"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/login_btnEntrar"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/login_btnCadastrar"
@@ -83,12 +68,12 @@
         app:layout_constraintTop_toBottomOf="@+id/login_btnEntrar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.084"
+        app:layout_constraintVertical_bias="0.087"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView"
         android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.043" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.501" />
 
     <CheckBox
         android:id="@+id/login_ckbConectado"

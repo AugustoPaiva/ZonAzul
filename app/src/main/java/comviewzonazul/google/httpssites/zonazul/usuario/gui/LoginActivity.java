@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     String MANTER_CONECTADO = "manter_conectado";
     String PREFERENCE_NAME = "LoginActivityPreferences";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

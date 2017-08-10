@@ -92,12 +92,14 @@
 
     <Button
         android:id="@+id/cliente_btnConfiguracoes"
+
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Configurações"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/cliente_btnExtrato"
-        android:layout_alignStart="@+id/cliente_btnExtrato" />
+        android:layout_alignStart="@+id/cliente_btnExtrato"
+        android:onClick="configuracoes"/>
 
     <Button
         android:id="@+id/cliente_btnSair"

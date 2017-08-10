@@ -1,15 +1,88 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".infraestrutura.Listar">
+    tools:context=".infraestrutura.Listar"
+    android:background="@drawable/fundo2"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
 
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATA"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorAccent2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/textView7"
+        android:textColor="@color/colorAccent2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRANSAÇÃO"
+        app:layout_constraintLeft_toRightOf="@+id/textView6"
+        android:layout_marginLeft="136dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent2"
+        android:id="@+id/textView8"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:text="VALOR"
+        app:layout_constraintLeft_toRightOf="@+id/textView7"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.426" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="voltar"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/listView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <ListView
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_height="wrap_content"
         android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-</LinearLayout>
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="64dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+</android.support.constraint.ConstraintLayout>
