@@ -70,4 +70,11 @@ public class Listar extends AppCompatActivity {
         ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.extrato,cursor,from,to);
         extrato.setAdapter(ad);
     }
+
+    public void voltar(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

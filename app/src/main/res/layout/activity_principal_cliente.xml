@@ -95,7 +95,7 @@
 
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Configurações"
+        android:text="Editar perfil"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/cliente_btnExtrato"
         android:layout_alignStart="@+id/cliente_btnExtrato"

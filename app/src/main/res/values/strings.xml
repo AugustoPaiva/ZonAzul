@@ -29,5 +29,6 @@
     <string name="title_activity_cliente_compra">ClienteCompra</string>
     <string name="title_activity_cliente_compra_cartao">ClienteCompraCartao</string>
     <string name="msg_Cadastrado">\"Cliente cadastrado\"</string>
+    <string name="msg_Editado">\"Perfil editado com sucesso\"</string>
     <string name="title_activity_principal_cliente">PrincipalClienteActivity</string>
 </resources>

@@ -14,6 +14,7 @@ import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mensagem;
 
 public class EditarClienteActivity extends AppCompatActivity {
 
@@ -53,12 +54,21 @@ public class EditarClienteActivity extends AppCompatActivity {
         cliente = new Cliente(editaremail,endereco,usuario.get_id());
         ClienteNegocio clienteNegocio = new ClienteNegocio(context, cliente);
         clienteNegocio.editar(cliente);
-        startActivity(new Intent(this, perfil_cliente.class));
+        startActivity(new Intent(this, PrincipalClienteActivity.class));
+        Mensagem.Msg(this, getString(R.string.msg_Editado));
+        finish();
 
     }
 
-    public void sair(View view){
-        startActivity(new Intent(this, LoginActivity.class));
+    public void voltar(View view){
+        startActivity(new Intent(this, PrincipalClienteActivity.class));
+        finish();
     }
 
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

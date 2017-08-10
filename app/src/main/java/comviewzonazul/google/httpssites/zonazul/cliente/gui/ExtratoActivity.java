@@ -22,11 +22,13 @@ public class ExtratoActivity extends AppCompatActivity {
 
     public void historico(View view){
         startActivity(new Intent(this, Listar.class));
-        finish();
+        //finish();
     }
 
-    public void voltar(View view){
-        startActivity(new Intent(this, PrincipalClienteActivity.class));
+    public void voltar(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
         finish();
     }
 
