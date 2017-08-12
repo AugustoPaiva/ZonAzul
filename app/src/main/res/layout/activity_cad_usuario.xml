@@ -22,6 +22,7 @@
         <EditText
             android:id="@+id/usuario_edtNome"
             android:layout_width="match_parent"
+            android:textColor="@color/colorAccent2"
             android:layout_height="wrap_content"
             android:inputType="text"/>
         <!--login-->>
@@ -36,6 +37,7 @@
             android:id="@+id/usuario_edtLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent2"
             android:inputType="text"/>
         <!--senha-->>
         <TextView
@@ -48,6 +50,7 @@
         <EditText
             android:id="@+id/usuario_edtSenha"
             android:layout_width="match_parent"
+            android:textColor="@color/colorAccent2"
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>
 
@@ -57,18 +60,22 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Salvar"
+            android:background="@color/colorAccent2"
+            android:textColor="@color/colorPrimaryDark"
             android:onClick="salvar"/>
-
-        <Button
-            android:id="@+id/cadastro_btSair"
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Sair"
-            android:onClick="sair"/>
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/cadastro_btSair"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorAccent2"
+        android:onClick="sair"
+        android:text="Sair"
+        android:textColor="@color/colorPrimaryDark" />
 
 
 </android.support.design.widget.CoordinatorLayout>

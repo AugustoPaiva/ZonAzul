@@ -67,6 +67,8 @@
         <Button
             android:id="@+id/button"
             android:layout_width="150dp"
+            android:background="@color/colorAccent2"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:text="Cartão de crédito"
             android:layout_marginTop="53dp"
@@ -77,6 +79,8 @@
         <Button
             android:id="@+id/button2"
             android:layout_width="150dp"
+            android:background="@color/colorAccent2"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:text="Boleto bancário"
             android:layout_marginTop="42dp"
@@ -90,6 +94,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Candelar"
+            android:background="@color/colorAccent2"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="35dp"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/button2"

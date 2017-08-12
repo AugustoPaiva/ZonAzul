@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".infraestrutura.Listar"
+    tools:context=".cliente.gui.ListarExtrato"
     android:background="@drawable/fundo2"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp">
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toTopOf="@+id/listView_car"
         app:layout_constraintVertical_bias="0.483" />
 
     <TextView
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toTopOf="@+id/listView_car"
         app:layout_constraintVertical_bias="0.483" />
 
     <TextView
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toTopOf="@+id/listView_car"
         app:layout_constraintVertical_bias="0.304" />
 
     <Button
@@ -64,7 +64,9 @@
         android:text="voltar"
         android:onClick="voltar"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/listView"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@+id/listView_car"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
@@ -73,10 +75,10 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listView_extrat"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
 
+        android:layout_height="0dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="70dp"

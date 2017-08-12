@@ -9,12 +9,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import comviewzonazul.google.httpssites.zonazul.R;
+import comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.compra.gui.CompraActivity;
-import comviewzonazul.google.httpssites.zonazul.infraestrutura.Listar;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 
  public class PrincipalClienteActivity extends AppCompatActivity {
@@ -69,9 +70,17 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
          finish();
      }
 
+     public void gerenciar(View view){
+         Intent intent = new Intent();
+         intent.setClass(this, GerenciarCarroActivity.class);
+         startActivity(intent);
+         finish();
+
+     }
+
     public void logout(View view){
         Intent intent = new Intent();
-        intent.setClass(this, Listar.class);
+        intent.setClass(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

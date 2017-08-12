@@ -21,6 +21,7 @@
     <string name="mensagem_cadastro">Cadastrado com sucesso.</string>
     <string name="mensagem_atualizar">Registro atualizado com sucesso.</string>
     <string name="mensagem_erro">Este login ja esta em uso, tente outro.</string>
+    <string name="mensagem">carro diferente.</string>
 
     <!-- ususarios -->
     <string name="usuario_txtNome"> Nome:</string>

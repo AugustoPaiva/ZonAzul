@@ -36,7 +36,7 @@ public class CompraActivity extends AppCompatActivity {
         editor.putInt("credito", credito);
         editor.commit();
         int cliente  = sharedPreferences.getInt("credito", 0);
-        Toast.makeText(context,"O CREDITO É " + Integer.toString(cliente), Toast.LENGTH_LONG).show();
+
     }
     public void cartao(View view){
         if(verificacao()){

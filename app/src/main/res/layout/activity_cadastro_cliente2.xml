@@ -14,6 +14,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColorHint="@color/colorAccent2"
+        android:textColor="@color/colorAccent2"
         android:text=""
         android:hint="Email"
         tools:layout_editor_absoluteX="16dp"
@@ -32,6 +33,7 @@
         tools:layout_editor_absoluteY="146dp"
         android:layout_above="@+id/txt_cep"
         android:layout_alignParentLeft="true"
+
         android:layout_alignParentStart="true"
         android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
@@ -49,6 +51,7 @@
         tools:layout_editor_absoluteY="231dp"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
+        android:textColor="@color/colorAccent2"
         android:textColorHint="@color/colorAccent2"/>
 
     <EditText
@@ -64,6 +67,7 @@
         android:layout_marginTop="15dp"
         android:layout_below="@+id/txt_numero"
         android:layout_alignParentStart="true"
+        android:textColor="@color/colorAccent2"
         android:textColorHint="@color/colorAccent2"/>
 
     <EditText
@@ -79,6 +83,7 @@
         android:layout_below="@+id/txt_complemento"
         android:layout_alignParentStart="true"
         android:layout_marginTop="14dp"
+        android:textColor="@color/colorAccent2"
         android:textColorHint="@color/colorAccent2"/>
 
     <EditText
@@ -89,6 +94,7 @@
         android:inputType="textPostalAddress"
         android:text=""
         android:hint="CEP"
+        android:textColor="@color/colorAccent2"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="188dp"
         android:layout_marginBottom="21dp"
@@ -109,6 +115,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="47dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="47dp"
         android:layout_marginBottom="35dp"
         android:onClick="voltar"/>
@@ -118,6 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cadastrar"
+
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         tools:layout_editor_absoluteX="220dp"
         tools:layout_editor_absoluteY="414dp"
         android:layout_marginBottom="35dp"

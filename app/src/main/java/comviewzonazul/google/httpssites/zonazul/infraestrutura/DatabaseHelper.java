@@ -31,16 +31,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Perfis ( id INTEGER PRIMARY KEY, "
                 + "usuario TEXT, perfil TEXT)");
         //tabela carros
-        db.execSQL("create table Carro(id integer primary key autoincrement, "
-                + "fabricante text not null, modelo text not null, cor text not null, ano text not null, placa text not null)");
+        db.execSQL("CREATE TABLE Carros ( _id INTEGER PRIMARY KEY, "
+                + "fabricante TEXT, modelo TEXT, cor TEXT, ano TEXT, placa TEXT)");
         // Tabela de compras
         db.execSQL("CREATE TABLE Compra ( _id INTEGER PRIMARY KEY, "
                 + "tipo TEXT, valor TEXT, id_comprador TEXT, data TEXT)");
+        // Tabela de carro para cliente
+        db.execSQL("CREATE TABLE CarroCliente ( _id INTEGER PRIMARY KEY, "
+                + "cliente TEXT, carro TEXT)");
+
+
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+
     }
 
     public static class Usuarios {
@@ -78,16 +84,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ID, ID_USUARIO, ID_PERFIL,
         };
     }
-    public static class Carro{
+    public static class CarroCliente {
+        public static final String TABELA_CARROCLIENTE = "carroCliente";
+        public static final String ID = "_id";
+        public static final String ID_CLIENTE = "cliente";
+        public static final String ID_CARRO = "carro";
+        public static final String[] COLUNAS_CARROCLIENTE = new String[]{
+                ID, ID_CLIENTE, ID_CARRO,
+        };
+    }
+    public static class Carros {
         public static final String TABELA_CARROS = "carros";
-        public static final String ID = "id";
+        public static final String ID = "_id";
         public static final String FABRICANTE = "fabricante";
         public static final String MODELO = "modelo";
         public static final String COR = "cor";
         public static final String ANO = "ano";
         public static final String PLACA = "placa";
         public static final String[] COLUNAS_CARRO = new String[]{
-                ID, FABRICANTE, MODELO, COR, PLACA
+                ID, FABRICANTE, MODELO, ANO, COR, PLACA
         };
     }
 

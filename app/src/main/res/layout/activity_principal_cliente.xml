@@ -67,43 +67,53 @@
         android:id="@+id/cliente_btnEstacionar"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Estacionar"
-        android:layout_below="@+id/bt_comprar"
-        android:layout_centerHorizontal="true" />
+        android:text="Gerenciar Carros"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="gerenciar"
+        android:layout_above="@+id/cliente_btnTempoRestante"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
 
     <Button
         android:id="@+id/cliente_btnExtrato"
         android:layout_width="150dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:text="Historico"
         android:onClick="extrato"
         android:layout_below="@+id/cliente_btnTempoRestante"
-        android:layout_alignStart="@+id/cliente_btnTempoRestante" />
+        android:layout_alignStart="@+id/cliente_btnTempoRestante"
+        android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/cliente_btnTempoRestante"
         android:layout_width="150dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
         android:text="Tempo Restante"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/cliente_btnEstacionar"
+        android:layout_centerVertical="true"
         android:layout_alignStart="@+id/cliente_btnEstacionar" />
 
     <Button
         android:id="@+id/cliente_btnConfiguracoes"
-
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Editar perfil"
-        android:layout_marginTop="23dp"
+        android:onClick="editar"
         android:layout_below="@+id/cliente_btnExtrato"
         android:layout_alignStart="@+id/cliente_btnExtrato"
-        android:onClick="editar"/>
+        android:layout_marginTop="11dp" />
 
     <Button
         android:id="@+id/cliente_btnSair"
         android:layout_width="100dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
         android:onClick="logout"
         android:text="Sair"

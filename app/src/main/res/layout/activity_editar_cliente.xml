@@ -7,6 +7,20 @@
     android:background="@drawable/fundo2"
     tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.EditarClienteActivity">
 
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="Editar Cliente"
+        android:textColor="@color/colorAccent2"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="8dp" />
     <EditText
         android:id="@+id/editnome"
         android:layout_width="wrap_content"
@@ -21,10 +35,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintVertical_bias="0.155"
         />
 
     <Button
@@ -32,6 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voltar"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         android:onClick="voltar"
         android:layout_marginTop="53dp"
         app:layout_constraintTop_toBottomOf="@+id/editcidade"
@@ -39,10 +55,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/salvar_alteracoes"
         android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/salvar_alteracoes"
@@ -51,12 +69,15 @@
         android:text="Salvar"
         android:onClick="alterarcadastro"
         android:layout_marginTop="53dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintTop_toBottomOf="@+id/editcidade"
-        android:layout_marginRight="84dp"
+        android:layout_marginRight="89dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginEnd="89dp" />
 
     <EditText
         android:id="@+id/editemail"
@@ -70,8 +91,8 @@
         android:hint="Email"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:layout_marginTop="17dp"
+        app:layout_constraintHorizontal_bias="0.189"
+        android:layout_marginTop="19dp"
         app:layout_constraintTop_toBottomOf="@+id/editnome" />
 
     <EditText
@@ -86,8 +107,8 @@
         android:textColorHint="@color/colorAccent2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:layout_marginTop="14dp"
+        app:layout_constraintHorizontal_bias="0.189"
+        android:layout_marginTop="29dp"
         app:layout_constraintTop_toBottomOf="@+id/editemail" />
 
     <EditText
@@ -102,8 +123,8 @@
         android:textColorHint="@color/colorAccent2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:layout_marginTop="19dp"
+        app:layout_constraintHorizontal_bias="0.189"
+        android:layout_marginTop="27dp"
         app:layout_constraintTop_toBottomOf="@+id/editcep" />
 
     <EditText
@@ -118,8 +139,8 @@
         android:textColorHint="@color/colorAccent2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:layout_marginTop="18dp"
+        app:layout_constraintHorizontal_bias="0.189"
+        android:layout_marginTop="29dp"
         app:layout_constraintTop_toBottomOf="@+id/editnumero" />
 
     <EditText
@@ -136,8 +157,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="21dp"
         app:layout_constraintTop_toBottomOf="@+id/editcomplemento"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.045" />
 </android.support.constraint.ConstraintLayout>
