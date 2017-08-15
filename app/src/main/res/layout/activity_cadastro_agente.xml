@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context="comviewzonazul.google.httpssites.zonazul.agentetransito.gui.CadastroAgenteActivity">
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorAccent2"
+        android:textColor="@color/colorAccent2"
+        android:text=""
+        android:hint="Email Institucional"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="75dp"
+        android:layout_marginTop="93dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/txt_registro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorAccent2"
+        android:textColor="@color/colorAccent2"
+        android:text=""
+        android:hint="Registro de Agente"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="75dp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/txt_email"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/txt_cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cadastrar"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="414dp"
+        android:layout_marginBottom="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="82dp"
+        android:layout_marginEnd="82dp"
+        android:onClick="cadastro"/>
+
+    <Button
+        android:id="@+id/txt_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="414dp"
+        android:layout_alignBaseline="@+id/txt_cadastrar"
+        android:layout_alignBottom="@+id/txt_cadastrar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="47dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginStart="47dp"
+        android:layout_marginBottom="35dp"
+        android:onClick="voltar"/>
+
+</RelativeLayout>

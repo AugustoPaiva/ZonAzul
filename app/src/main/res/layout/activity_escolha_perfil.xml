@@ -9,6 +9,7 @@
 
     <Button
         android:id="@+id/button"
+        android:onClick="agentetransito"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:text="Agente de Transito"
@@ -22,6 +23,7 @@
 
     <Button
         android:id="@+id/button2"
+        android:onClick="pontovenda"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:text="Ponto de Venda"

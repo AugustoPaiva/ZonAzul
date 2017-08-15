@@ -1,61 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fundo2"
-    tools:context="comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:id="@+id/placa"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lista de Carros"
-        android:textSize="30dp"
-        android:textColor="@color/colorAccent2"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="29dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp" />
+        android:text="placa" />
 
-    <ListView
-        android:id="@+id/listView_car"
-        android:layout_width="wrap_content"
-        android:layout_height="370dp"
-
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="70dp"
-        android:layout_marginTop="76dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/fabricante"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="43dp"
-        android:onClick="adicionar"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Adicionar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView9" />
+        android:text="fabricante" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/modelo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="49dp"
-        android:onClick="voltar"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="voltar"
-        android:layout_alignBaseline="@+id/button8"
-        android:layout_alignBottom="@+id/button8"
-        android:layout_toStartOf="@+id/button8" />
-</RelativeLayout>
+        android:text="modelo" />
+
+    <TextView
+        android:id="@+id/cor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cor" />
+
+</LinearLayout>

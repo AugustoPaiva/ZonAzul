@@ -23,6 +23,7 @@ public class AdicionarCarro extends AppCompatActivity {
     private EditText txt_modelo, txt_placa, txt_cor, txt_ano, txt_fabricante;
     private Carro carro;
     private int idCliente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +99,4 @@ public class AdicionarCarro extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-
 }
