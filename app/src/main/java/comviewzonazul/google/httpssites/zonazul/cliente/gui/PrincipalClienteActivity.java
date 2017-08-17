@@ -14,6 +14,7 @@ import comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.compra.gui.CompraActivity;
+import comviewzonazul.google.httpssites.zonazul.estacionamento.gui.Estacionar;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
@@ -77,6 +78,12 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
          startActivity(intent);
          finish();
 
+     }
+     public void estacionar(View view){
+         Intent intent = new Intent();
+         intent.setClass(this, Estacionar.class);
+         startActivity(intent);
+         finish();
      }
 
     public void logout(View view){

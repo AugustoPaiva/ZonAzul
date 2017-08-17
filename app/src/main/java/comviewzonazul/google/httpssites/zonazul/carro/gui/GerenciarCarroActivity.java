@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import comviewzonazul.google.httpssites.zonazul.R;
@@ -66,13 +68,14 @@ public class GerenciarCarroActivity extends AppCompatActivity {
     public void Listagem(){
         lista = (ListView)findViewById(R.id.listView_car);
         String[] from = { DatabaseHelper.Carros.PLACA, DatabaseHelper.Carros.FABRICANTE,DatabaseHelper.Carros.MODELO, DatabaseHelper.Carros.COR};
-        int [] to = {R.id.placa, R.id.fabricante, R.id.txt_modelo, R.id.cor};
+        int [] to = {R.id.placa, R.id.fabricante, R.id.modelo, R.id.cor};
         ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.listar_carro,cursor,from,to);
         lista.setAdapter(ad);
     }
 
     public void remover(View view){
         Toast.makeText(this.getApplicationContext(), DatabaseHelper.Carros.PLACA, Toast.LENGTH_SHORT).show();
+
     }
 
     public void adicionar(View view){
@@ -83,8 +86,11 @@ public class GerenciarCarroActivity extends AppCompatActivity {
 
     }
 
-    public void voltar(View view){
-        startActivity(new Intent(this, PrincipalClienteActivity.class));
+
+    public void voltar(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
         finish();
     }
 }

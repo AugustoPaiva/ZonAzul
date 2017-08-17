@@ -3,10 +3,13 @@ package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
@@ -58,6 +61,23 @@ public class EditarClienteActivity extends AppCompatActivity {
         Mensagem.Msg(this, getString(R.string.msg_Editado));
         finish();
 
+    }
+
+    public void tirarFoto(View view){
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        startActivityForResult(intent,0);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(data != null){
+            Bundle bundle = data.getExtras();
+            if(bundle !=null){
+                Bitmap img = (Bitmap) bundle.get("data");
+
+                ImageView iv = (ImageView) findViewById(R.id.foto_usuario);
+                iv.setImageBitmap(img);
+            }
+        }
     }
 
     public void voltar(View view){

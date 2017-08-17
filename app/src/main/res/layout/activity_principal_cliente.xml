@@ -93,8 +93,9 @@
         android:background="@color/colorAccent2"
         android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
-        android:text="Tempo Restante"
+        android:text="estacionar"
         android:layout_centerVertical="true"
+        android:onClick="estacionar"
         android:layout_alignStart="@+id/cliente_btnEstacionar" />
 
     <Button

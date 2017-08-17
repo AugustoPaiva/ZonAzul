@@ -16,7 +16,7 @@ public class CarroDAO {
     public CarroDAO(Context context_){
         this.context = context_;
         databaseHelper = new DatabaseHelper(context_);
-        database = databaseHelper.getWritableDatabase();
+
     }
 
     private SQLiteDatabase getDatabase() {

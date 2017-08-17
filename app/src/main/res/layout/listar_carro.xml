@@ -7,24 +7,24 @@
         android:id="@+id/placa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="placa" />
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/fabricante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="fabricante" />
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/modelo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="modelo" />
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/cor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="cor" />
+        android:text="TextView" />
 
 </LinearLayout>

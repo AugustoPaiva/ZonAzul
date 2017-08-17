@@ -46,6 +46,7 @@
         <activity android:name=".cliente.gui.perfil_cliente" />
         <activity android:name=".carro.gui.AdicionarCarro" />
         <activity android:name=".carro.gui.GerenciarCarroActivity" />
+        <activity android:name=".estacionamento.gui.Estacionar"></activity>
         <activity android:name=".pontovenda.gui.CadastroPontoVendaActivity" />
         <activity android:name=".pontovenda.gui.PontoVendaActivity" />
         <activity
