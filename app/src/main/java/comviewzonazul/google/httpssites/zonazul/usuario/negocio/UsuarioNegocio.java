@@ -66,5 +66,17 @@ public class UsuarioNegocio {
             return false;
         }
     }
+
+    public boolean verificaPontoVenda(){
+        String login = usuario.getLogin();
+        int id = usuarioDAO.retornarId(login);
+        usuario.set_id(id);
+        if (usuarioDAO.existePontoVenda(id)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 

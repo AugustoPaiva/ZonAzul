@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import comviewzonazul.google.httpssites.zonazul.MapsActivity;
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
@@ -95,6 +96,12 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
      public void editar(View view){
          Intent intent = new Intent();
          intent.setClass(this, EditarClienteActivity.class);
+         startActivity(intent);
+         finish();
+     }
+     public void pontos_de_venda(View view){
+         Intent intent = new Intent();
+         intent.setClass(this, MapsActivity.class);
          startActivity(intent);
          finish();
      }

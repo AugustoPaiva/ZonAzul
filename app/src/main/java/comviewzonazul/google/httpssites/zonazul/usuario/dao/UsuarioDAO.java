@@ -110,4 +110,18 @@ public class UsuarioDAO {
         getDatabase().update(DatabaseHelper.Usuarios.TABELA, valores,"_id="+id_usuario,null);
 
     }
+    public boolean existePontoVenda(int idusuario){
+
+        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=?", new String[] { String.valueOf(idusuario) }, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int pontovenda = cursor.getInt(2);
+
+            if(pontovenda == 2){
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }

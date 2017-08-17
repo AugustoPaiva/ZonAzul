@@ -117,9 +117,21 @@
         android:layout_height="wrap_content"
         android:onClick="logout"
         android:text="Sair"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="22dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cliente_btnSair"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Pontos de Venda"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/colorAccent2"
+        android:onClick="pontos_de_venda"/>
 
 
 </android.widget.RelativeLayout>

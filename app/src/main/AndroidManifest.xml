@@ -46,14 +46,19 @@
         <activity android:name=".cliente.gui.perfil_cliente" />
         <activity android:name=".carro.gui.AdicionarCarro" />
         <activity android:name=".carro.gui.GerenciarCarroActivity" />
+        <activity android:name=".pontovenda.gui.CadastroPontoVendaActivity" />
+        <activity android:name=".pontovenda.gui.PontoVendaActivity" />
         <activity
             android:name=".agentetransito.gui.CadastroAgenteActivity"
             android:label="@string/title_activity_cadastro_agente"
             android:theme="@style/AppTheme" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
+
         <activity
-            android:name=".pontovenda.gui.CadastroPontoVendaActivity"
-            android:label="@string/title_activity_cadastro_ponto_venda"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".MapsActivity"
+            android:label="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo"></activity>
     </application>
 
 </manifest>

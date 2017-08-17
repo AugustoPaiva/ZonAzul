@@ -3,16 +3,16 @@ package comviewzonazul.google.httpssites.zonazul.usuario.gui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.agentetransito.gui.CadastroAgenteActivity;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
 import comviewzonazul.google.httpssites.zonazul.pontovenda.gui.CadastroPontoVendaActivity;
+import comviewzonazul.google.httpssites.zonazul.pontovenda.gui.PontoVendaActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 
@@ -70,6 +70,23 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
         intent.setClass(this, CadastroPontoVendaActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void ponto_venda(View view){
+        Context context = getApplicationContext();
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context, usuario);
+        if ((usuarioNegocio.verificaPontoVenda())){
+            Intent intent = new Intent();
+            intent.setClass(this, PontoVendaActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            Intent intent = new Intent();
+            intent.setClass(this, CadastroPontoVendaActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 }

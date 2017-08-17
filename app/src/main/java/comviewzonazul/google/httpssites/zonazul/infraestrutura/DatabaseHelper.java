@@ -39,7 +39,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Tabela de carro para cliente
         db.execSQL("CREATE TABLE CarroCliente ( _id INTEGER PRIMARY KEY, "
                 + "cliente TEXT, carro TEXT)");
-
+        // Tabela de Ponto de venda
+        db.execSQL("CREATE TABLE PontoVenda ( _id INTEGER PRIMARY KEY, "
+                + "usuario TEXT, email TEXT, cep TEXT, complemento TEXT, numero TEXT, cidade TEXT, id_usuario TEXT, cnpj TEXT, nome_estabelecimento TEXT)");
 
 
     }
@@ -115,6 +117,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String DATA = "data";
         public static final String[] COLUNAS_COMPRA = new String[]{
                 ID, TIPO, VALOR, ID_COMPRADOR, DATA
+        };
+    }
+    public static class PontoVenda {
+        public static final String TABELA_PONTOVENDA = "pontovenda";
+        public static final String _ID = "_id";
+        public static final String USUARIO = "usuario";
+        public static final String EMAIL = "email";
+        public static final String CEP = "cep";
+        public static final String COMPLEMENTO = "complemento";
+        public static final String NUMERO = "numero";
+        public static final String CIDADE = "cidade";
+        public static final String CNPJ = "cnpj";
+        public static final String NOME_ESTABELECIMENTO = "nome_estabelecimento";
+        public static final String[] COLUNAS_PONTOVENDA = new String[]{
+                _ID, USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE, CNPJ, NOME_ESTABELECIMENTO
         };
     }
 }
