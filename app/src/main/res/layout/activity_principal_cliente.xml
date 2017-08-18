@@ -31,11 +31,10 @@
         android:textColor="@color/colorAccent2"
         android:textSize="28dp"
         android:gravity="center"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/appBarLayout2"
-        android:layout_alignParentLeft="true"
+        android:textStyle="bold"
+        android:layout_above="@+id/bt_comprar"
         android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+        android:layout_marginBottom="13dp" />
 
     <TextView
         android:id="@+id/textViewSaldo"
@@ -43,13 +42,12 @@
         android:layout_height="wrap_content"
         android:text="s"
         android:textColor="@color/colorAccent2"
-        android:layout_marginTop="29dp"
         android:textSize="26dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:layout_below="@+id/textViewNome"
-        android:layout_alignRight="@+id/cliente_btnEstacionar"
-        android:layout_alignEnd="@+id/cliente_btnEstacionar" />
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/cliente_btnTempoRestante"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:id="@+id/bt_comprar"
@@ -57,35 +55,14 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_input_add"
         android:onClick="comprar"
-        android:layout_alignTop="@+id/textViewSaldo"
-        android:layout_alignLeft="@+id/cliente_btnSair"
-        android:layout_alignStart="@+id/cliente_btnSair"
         android:layout_marginLeft="84dp"
-        android:layout_marginStart="84dp" />
+        android:layout_alignTop="@+id/textViewSaldo"
+        android:layout_toEndOf="@+id/cliente_btnTempoRestante"
+        android:layout_marginStart="19dp" />
 
-    <Button
-        android:id="@+id/cliente_btnEstacionar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Gerenciar Carros"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:onClick="gerenciar"
-        android:layout_above="@+id/cliente_btnTempoRestante"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp" />
 
-    <Button
-        android:id="@+id/cliente_btnExtrato"
-        android:layout_width="150dp"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_height="wrap_content"
-        android:text="Historico"
-        android:onClick="extrato"
-        android:layout_below="@+id/cliente_btnTempoRestante"
-        android:layout_alignStart="@+id/cliente_btnTempoRestante"
-        android:layout_marginTop="12dp" />
+
+
 
     <Button
         android:id="@+id/cliente_btnTempoRestante"
@@ -94,21 +71,11 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
         android:text="estacionar"
-        android:layout_centerVertical="true"
         android:onClick="estacionar"
-        android:layout_alignStart="@+id/cliente_btnEstacionar" />
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/button11" />
 
-    <Button
-        android:id="@+id/cliente_btnConfiguracoes"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Editar perfil"
-        android:onClick="editar"
-        android:layout_below="@+id/cliente_btnExtrato"
-        android:layout_alignStart="@+id/cliente_btnExtrato"
-        android:layout_marginTop="11dp" />
+
 
     <Button
         android:id="@+id/cliente_btnSair"
@@ -126,13 +93,37 @@
         android:id="@+id/button11"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cliente_btnSair"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
         android:text="Pontos de Venda"
         android:textColor="@color/colorPrimaryDark"
         android:background="@color/colorAccent2"
-        android:onClick="pontos_de_venda"/>
+        android:onClick="pontos_de_venda"
+        android:layout_below="@+id/cliente_btnTempoRestante"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Configurações"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/colorAccent2"
+        android:onClick="configuracao"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/button11"
+        android:layout_alignStart="@+id/button11" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/profilepic"
+
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/textViewNome"
+        android:layout_alignEnd="@+id/cliente_btnSair" /> // Sua imagem
+        app:civ_border_width="0dp" // Se quiser pode colocar uma borda na imagem tambem
+        app:civ_border_color="#FF000000"/>
 
 
 </android.widget.RelativeLayout>

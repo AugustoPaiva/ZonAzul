@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context="comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout2">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<include layout="@layout/content_principal_cliente"
+        android:id="@+id/include"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />-->
+
+
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configurações"
+        android:textColor="@color/colorAccent2"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/cliente_btnEstacionar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Gerenciar Carros"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="gerenciar"
+        android:layout_marginBottom="43dp"
+        android:layout_above="@+id/cliente_btnExtrato"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/cliente_btnExtrato"
+        android:layout_width="150dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:text="Historico"
+        android:onClick="extrato"
+        android:layout_above="@+id/cliente_btnConfiguracoes"
+        android:layout_alignStart="@+id/cliente_btnConfiguracoes"
+        android:layout_marginBottom="39dp" />
+
+
+
+    <Button
+        android:id="@+id/cliente_btnConfiguracoes"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Editar perfil"
+        android:onClick="editar"
+        android:layout_above="@+id/cliente_btnSair"
+        android:layout_alignStart="@+id/cliente_btnEstacionar"
+        android:layout_marginBottom="90dp" />
+
+    <Button
+        android:id="@+id/cliente_btnSair"
+        android:layout_width="100dp"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="Sair"
+        android:layout_marginBottom="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+</android.widget.RelativeLayout>
+

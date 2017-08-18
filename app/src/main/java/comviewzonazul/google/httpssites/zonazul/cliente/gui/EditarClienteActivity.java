@@ -84,13 +84,13 @@ public class EditarClienteActivity extends AppCompatActivity {
     }
 
     public void voltar(View view){
-        startActivity(new Intent(this, PrincipalClienteActivity.class));
+        startActivity(new Intent(this, ConfiguracaoClienteActivity.class));
         finish();
     }
 
     public void onBackPressed(){
         Intent intent = new Intent();
-        intent.setClass(this, PrincipalClienteActivity.class);
+        intent.setClass(this, ConfiguracaoClienteActivity.class);
         startActivity(intent);
         finish();
     }

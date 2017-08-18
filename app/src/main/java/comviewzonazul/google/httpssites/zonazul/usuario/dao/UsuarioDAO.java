@@ -75,7 +75,7 @@ public class UsuarioDAO {
     public boolean existeCliente(int idusuario) {
 
         Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=? AND " + DatabaseHelper.Perfis.ID_PERFIL + "=?", new String[] { String.valueOf(idusuario), Integer.toString(1) }, null, null, null, null);
-        if (cursor != null) {
+        if (cursor.getCount() !=0) {
 
             return true;
         }
@@ -119,7 +119,7 @@ public class UsuarioDAO {
     public boolean existePontoVenda(int idusuario){
 
         Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=? AND " + DatabaseHelper.Perfis.ID_PERFIL + "=?", new String[] { String.valueOf(idusuario), Integer.toString(2) }, null, null, null, null);
-        if (cursor != null) {
+        if (cursor.getCount() !=0) {
             cursor.moveToFirst();
             return true;
         }

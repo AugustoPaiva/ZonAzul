@@ -61,10 +61,7 @@
         <activity
             android:name=".infraestrutura.MapsActivity"
             android:label="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
-        <activity
-            android:name=".agentetransito.gui.PrincipalAgenteActivity"
-            android:label="@string/title_activity_principal_agente"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".cliente.gui.ConfiguracaoClienteActivity"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ public class Cliente {
     public String email;
     public double saldo = 0;
     public Endereco endereco;
+    private byte[] image;
 
     public Cliente(int id_, int user_id_, String email_, Double saldo_, Endereco endereco_){
         id = id_;
@@ -13,18 +14,29 @@ public class Cliente {
         email = email_;
         saldo = saldo_;
         endereco = endereco_;
+        image = null;
+    }
+    public Cliente(int id_, int user_id_, String email_, Double saldo_, Endereco endereco_, byte[] image){
+        id = id_;
+        user_id = user_id_;
+        email = email_;
+        saldo = saldo_;
+        endereco = endereco_;
+        this.image = image;
     }
 
     public Cliente(int id_, String email_, Endereco endereco_){
         id = id_;
         email = email_;
         endereco = endereco_;
+        image = null;
     }
 
     public Cliente(String email_,  Endereco endereco_, int user_id_){
         email = email_;
         endereco = endereco_;
         user_id = user_id_;
+        image = null;
     }
 
     public Cliente(String email_){
@@ -72,5 +84,13 @@ public class Cliente {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

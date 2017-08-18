@@ -161,17 +161,18 @@
         android:layout_alignStart="@+id/editnome"
         android:layout_marginTop="158dp" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/user"
         android:id="@+id/foto_usuario"
-        android:layout_width="90dp"
-        android:layout_height="74dp"
-        app:srcCompat="@drawable/user"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="108dp"
-        android:layout_below="@+id/button11"
-        android:layout_alignStart="@+id/editcidade"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="55dp" />
+        android:layout_marginStart="14dp"
+        android:layout_alignTop="@+id/button11"
+        android:layout_alignStart="@+id/editcidade" /> // Sua imagem
+    app:civ_border_width="0dp" // Se quiser pode colocar uma borda na imagem tambem
+    app:civ_border_color="#FF000000"/>
 
     <Button
         android:id="@+id/button11"

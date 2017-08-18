@@ -17,14 +17,14 @@ public class EscolhaExtrato extends AppCompatActivity {
 
     public void onBackPressed(){
         Intent intent = new Intent();
-        intent.setClass(this, PrincipalClienteActivity.class);
+        intent.setClass(this, ConfiguracaoClienteActivity.class);
         startActivity(intent);
         finish();
     }
 
     public void voltar(View view){
         Intent intent = new Intent();
-        intent.setClass(this, PrincipalClienteActivity.class);
+        intent.setClass(this, ConfiguracaoClienteActivity.class);
         startActivity(intent);
         finish();
     }

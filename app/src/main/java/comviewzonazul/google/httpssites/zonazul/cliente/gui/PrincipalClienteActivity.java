@@ -3,6 +3,7 @@
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,7 @@ import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import de.hdodenhof.circleimageview.CircleImageView;
 
  public class PrincipalClienteActivity extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
      Usuario user = new Usuario();
      Cliente cliente = new Cliente();
      TextView nomeUser, saldoUsuario;
+     Bitmap imagemPerfil;
+     de.hdodenhof.circleimageview.CircleImageView perfilPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +50,24 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
         Context context = getApplicationContext();
         ClienteNegocio clientenegocio = new ClienteNegocio(getApplicationContext());
         cliente = clientenegocio.retornaCliente(user.get_id());
+        imagemPerfil = clientenegocio.pegarImagem(cliente.getId());
     }
 
     public void editarItens(){
         nomeUser.setText(user.getNome().toUpperCase()+"");
         saldoUsuario.setText("R$" +cliente.getSaldo() +"");
+        if(imagemPerfil != null){
+            perfilPic.setImageBitmap(imagemPerfil);
+        }
     }
 
      public void encontrarItens() {
          nomeUser = (TextView) findViewById(R.id.textViewNome);
          saldoUsuario = (TextView)findViewById(R.id.textViewSaldo);
+
+         perfilPic = (de.hdodenhof.circleimageview.CircleImageView)findViewById(R.id.profile_image);
+
+
      }
 
      public void comprar(View view){
@@ -65,20 +77,7 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
          finish();
      }
 
-     public void extrato(View view){
-         Intent intent = new Intent();
-         intent.setClass(this, ExtratoActivity.class);
-         startActivity(intent);
-         finish();
-     }
 
-     public void gerenciar(View view){
-         Intent intent = new Intent();
-         intent.setClass(this, GerenciarCarroActivity.class);
-         startActivity(intent);
-         finish();
-
-     }
      public void estacionar(View view){
          Intent intent = new Intent();
          intent.setClass(this, Estacionar.class);
@@ -100,15 +99,16 @@ import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
         finish();
     }
 
-     public void editar(View view){
-         Intent intent = new Intent();
-         intent.setClass(this, EditarClienteActivity.class);
-         startActivity(intent);
-         finish();
-     }
      public void pontos_de_venda(View view){
          Intent intent = new Intent();
          intent.setClass(this, MapsActivity.class);
+         startActivity(intent);
+         finish();
+     }
+
+     public void configuracao(View view){
+         Intent intent = new Intent();
+         intent.setClass(this, ConfiguracaoClienteActivity.class);
          startActivity(intent);
          finish();
      }

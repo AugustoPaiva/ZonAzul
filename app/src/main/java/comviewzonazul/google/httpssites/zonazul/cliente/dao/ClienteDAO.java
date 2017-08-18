@@ -68,6 +68,7 @@ public class ClienteDAO {
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
         valores.put(DatabaseHelper.Clientes.USUARIO, id_usuario);
+        valores.put(DatabaseHelper.Clientes.IMAGEM, (byte[]) null);
         getDatabase().insert(DatabaseHelper.Clientes.TABELA_CLIENTES, null, valores);
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.Perfis.ID_USUARIO,id_usuario);
@@ -76,9 +77,9 @@ public class ClienteDAO {
         getDatabase().close();
     }
 
-    public Cliente BuscarClientePorUsuario(int id){
+    public Cliente buscarClientePorUsuario(int id){
         Cursor cursor = getDatabase().query(DatabaseHelper.Clientes.TABELA_CLIENTES, DatabaseHelper.Clientes.COLUNAS_CLIENTES, DatabaseHelper.Clientes.USUARIO + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
-        if(cursor != null) {
+        if(cursor.getCount() != 0) {
             cursor.moveToFirst();
             Endereco endereco = new Endereco(
                     cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.NUMERO)),
@@ -91,7 +92,7 @@ public class ClienteDAO {
                     cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes.USUARIO)),
                     cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.EMAIL)),
                     cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Clientes.SALDO)),
-                    endereco
+                    endereco, cursor.getBlob(cursor.getColumnIndex(DatabaseHelper.Clientes.IMAGEM))
 
             );
 
@@ -104,6 +105,11 @@ public class ClienteDAO {
         return cliente;
     }
 
+    public byte[] retonarByte(int id){
+        Cliente cliente = buscarClientePorUsuario(id);
+        return cliente.getImage();
+
+    }
     public  int retornarId(String login_) {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA, DatabaseHelper.Usuarios.COLUNAS, DatabaseHelper.Usuarios.LOGIN + "=?", new String[]{ login_ }, null, null, null);
         if(cursor != null){

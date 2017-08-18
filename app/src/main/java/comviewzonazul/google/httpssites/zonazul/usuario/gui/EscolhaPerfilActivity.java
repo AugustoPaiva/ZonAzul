@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.agentetransito.gui.CadastroAgenteActivity;
@@ -34,12 +35,15 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     public void cliente(View view){
         Context context = getApplicationContext();
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
+
         if ((usuarioNegocio.verificaCliente())){
+
             Intent intent = new Intent();
             intent.setClass(this, PrincipalClienteActivity.class);
             startActivity(intent);
             finish();
         }else {
+
             Intent intent = new Intent();
             intent.setClass(this, CadastroClienteActivity2.class);
             startActivity(intent);
