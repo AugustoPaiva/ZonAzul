@@ -46,6 +46,7 @@
         android:id="@+id/button"
         android:layout_width="159dp"
         android:layout_height="97dp"
+        android:onClick="agentetransito"
         android:background="@drawable/icon_agente"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

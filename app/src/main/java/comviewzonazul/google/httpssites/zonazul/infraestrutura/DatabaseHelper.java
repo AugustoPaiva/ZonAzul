@@ -45,6 +45,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Tabela de Ponto de venda
         db.execSQL("CREATE TABLE PontoVenda ( _id INTEGER PRIMARY KEY, "
                 + "usuario TEXT, email TEXT, cep TEXT, complemento TEXT, numero TEXT, cidade TEXT, id_usuario TEXT, cnpj TEXT, nome_estabelecimento TEXT)");
+        // Tabela agentes
+        db.execSQL("CREATE TABLE Agentes ( _id INTEGER PRIMARY KEY, "
+                + "email TEXT, registro TEXT, municipio TEXT)");
 
     }
 
@@ -63,6 +66,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 _ID, NOME, LOGIN, SENHA
         };
     }
+
+    public static class Agentes {
+        public static final String TABELA_AGENTES = "agentes";
+        public static final String _ID = "_id";
+        public static final String USUARIO = "usuario";
+        public static final String EMAIL = "email";
+        public static final String REGISTRO = "registro";
+        public static final String MUNICIPIO = "municipio";
+        public static final String[] COLUNAS_AGENTES = new String[]{
+                _ID, USUARIO, EMAIL, REGISTRO, MUNICIPIO
+        };
+    }
+
 
     public static class Clientes {
         public static final String TABELA_CLIENTES = "clientes";

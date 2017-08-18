@@ -74,4 +74,19 @@
         android:layout_marginBottom="35dp"
         android:onClick="voltar"/>
 
+    <EditText
+        android:id="@+id/txt_municipio"
+        android:hint="Município"
+        android:textColor="@color/colorAccent2"
+        android:textColorHint="@color/colorAccent2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_below="@+id/txt_registro"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

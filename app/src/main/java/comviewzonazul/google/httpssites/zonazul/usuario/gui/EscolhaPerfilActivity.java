@@ -9,6 +9,7 @@ import android.view.View;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.agentetransito.gui.CadastroAgenteActivity;
+import comviewzonazul.google.httpssites.zonazul.agentetransito.gui.PrincipalAgenteActivity;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.CadastroClienteActivity2;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
 import comviewzonazul.google.httpssites.zonazul.pontovenda.gui.CadastroPontoVendaActivity;
@@ -59,10 +60,19 @@ public class EscolhaPerfilActivity extends AppCompatActivity {
     }
 
     public void agentetransito(View view){
-        Intent intent = new Intent();
-        intent.setClass(this, CadastroAgenteActivity.class);
-        startActivity(intent);
-        finish();
+        Context context = getApplicationContext();
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
+        if ((usuarioNegocio.verificaAgente())){
+            Intent intent = new Intent();
+            intent.setClass(this, PrincipalAgenteActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Intent intent = new Intent();
+            intent.setClass(this, CadastroAgenteActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void pontovenda(View view){

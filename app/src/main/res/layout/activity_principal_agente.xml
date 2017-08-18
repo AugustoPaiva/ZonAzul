@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context="comviewzonazul.google.httpssites.zonazul.agentetransito.gui.PrincipalAgenteActivity">
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent2"
+        android:textSize="28dp"
+        android:layout_marginTop="76dp"
+        android:text="Verificar placa"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:layout_marginLeft="52dp"
+        android:text="voltar"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="voltar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="52dp" />
+
+    <Button
+        android:id="@+id/confirmar"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="pesquisar"
+        android:background="@color/colorAccent2"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="pesquisar"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="51dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:text=""
+        android:hint="Inserir placa"
+        android:textColorHint="@color/colorAccent2"
+        android:textColor="@color/colorAccent2"/>
+
+</RelativeLayout>

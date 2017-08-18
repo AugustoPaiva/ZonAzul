@@ -21,13 +21,14 @@ import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mensagem;
 
 public class CadastroAgenteActivity extends AppCompatActivity {
-    EditText txt_email, txt_registro;
+    EditText txt_email, txt_registro, txt_municipio;
     Agente agente;
     Context context;
     AgenteNegocio agenteNegocio;
-    String login_usuario,senha_usuario;
+    String login_usuario,senha_usuario,email;
     int id;
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
 
@@ -41,12 +42,51 @@ public class CadastroAgenteActivity extends AppCompatActivity {
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
         txt_registro = (EditText) findViewById(R.id.txt_registro);
+        txt_municipio = (EditText) findViewById(R.id.txt_municipio);
     }
 
     public void chamarID(){
         Usuario usuario = new Usuario(login_usuario,senha_usuario);
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio(context,usuario);
         id = usuarioNegocio.pegarId();
+    }
+
+    public boolean validacoes(){
+        if (cadastroAgente()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void montarObjetos(){
+        chamarID();
+        String email = txt_email.getText().toString();
+        String municipio = txt_municipio.getText().toString();
+        String registro = txt_registro.getText().toString();
+        agente = new Agente(id, email, registro, municipio);
+    }
+
+    public boolean cadastroAgente() {
+        montarObjetos();
+        agenteNegocio = new AgenteNegocio(context, agente);
+        if ((!agenteNegocio.retornarAgenteEmail())) {
+            agenteNegocio.cadastro();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void cadastro(View view){
+        if (validacoes()){
+            cadastroAgente();
+            Intent intent = new Intent();
+            intent.setClass(this, EscolhaPerfilActivity.class);
+            startActivity(intent);
+            Mensagem.Msg(this, getString(R.string.msg_AgCadastrado));
+            finish();
+        }
     }
 
     public void onBackPressed(){
