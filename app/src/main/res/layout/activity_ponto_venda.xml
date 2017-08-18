@@ -44,7 +44,7 @@
         android:background="@color/colorAccent2"
         android:ems="10"
         android:hint="Valor a ser inserido"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColorHint="@color/colorPrimaryDark"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
