@@ -30,12 +30,12 @@ public class CompraNegocio {
         String txtDate = new SimpleDateFormat("dd/MM/yyyy - HH:mm").format(currentDate);
         return txtDate;
     }
-    public void compra(){
+    public void compra(String tipo){
         antigoSaldo = cliente.getSaldo();
         compraDAO.atualizarSaldo(cliente,credito,antigoSaldo);
-        adicionarHistorico();
+        adicionarHistorico(tipo);
     }
-    public void adicionarHistorico(){
-        compraDAO.atualizarBanco(cliente, credito, this.data());
+    public void adicionarHistorico(String tipo){
+        compraDAO.atualizarBanco(cliente, credito, this.data(),tipo);
     }
 }

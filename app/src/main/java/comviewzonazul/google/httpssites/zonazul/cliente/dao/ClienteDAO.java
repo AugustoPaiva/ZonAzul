@@ -119,6 +119,33 @@ public class ClienteDAO {
         return id;
     }
 
+    public Cliente buscarClienteEmail(String email){
+        Cursor cursor = getDatabase().query("clientes", new String[]{"*"}, "email=?", new String[]{email}, null, null, null, null);
+        if (cursor.getCount() == 0) {
+            cursor.close();
+            return null;
+        }
+        return constroeCliente(cursor);
+    }
+
+    public Cliente constroeCliente(Cursor cursor){
+        Endereco endereco = new Endereco(
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.NUMERO)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.COMPLEMENTO)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CEP)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.CIDADE))
+        );
+        Cliente cliente = new Cliente(
+                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes._ID)),
+                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Clientes.USUARIO)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Clientes.EMAIL)),
+                cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Clientes.SALDO)),
+                endereco, cursor.getBlob(cursor.getColumnIndex(DatabaseHelper.Clientes.IMAGEM))
+
+        );
+        return cliente;
+
+    }
     public void editar(Cliente cliente, byte[] image){
         retornoLogin();
         ContentValues valores = new ContentValues();

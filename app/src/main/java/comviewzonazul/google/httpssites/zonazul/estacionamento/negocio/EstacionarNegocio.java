@@ -51,7 +51,7 @@ public class EstacionarNegocio {
         estacionarDAO.estacionar(placa, pegarData(), horaEntrada(), horaSaida());
         CompraDAO compraDAO = new CompraDAO(context);
         compraDAO.atualizarSaldo(cliente,-3.00d,cliente.getSaldo());
-        compraDAO.atualizarBanco(cliente,-3.00d,pegarData() + " - " + horaEntrada());
+        compraDAO.atualizarBanco(cliente,-3.00d,pegarData() + " - " + horaEntrada(),"Estacionamento");
     }
 
     public String pegarData(){

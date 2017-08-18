@@ -20,6 +20,9 @@ public class ClienteNegocio {
         clienteDAO = new ClienteDAO(context,cliente_);
         cliente = cliente_;
     }
+    public Cliente retornarClienteEmail(String email){
+        return clienteDAO.buscarClienteEmail(email);
+    }
     public Bitmap pegarImagem(int id){
         BitmapUtility bitImage = new BitmapUtility();
         byte[] imagem = clienteDAO.retonarByte(id);

@@ -80,7 +80,7 @@ public class CompraCartaoActivity extends AppCompatActivity {
         montarObjetos();
         findCliente();
         CompraNegocio compra = new CompraNegocio(context,credito,cliente);
-        compra.compra();
+        compra.compra("Credito");
         Toast.makeText(context,"Compra confirmada", Toast.LENGTH_LONG).show();
         startActivity(new Intent(this, PrincipalClienteActivity.class));
         finish();

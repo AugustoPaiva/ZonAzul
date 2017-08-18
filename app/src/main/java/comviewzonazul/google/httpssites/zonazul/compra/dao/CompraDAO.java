@@ -43,12 +43,12 @@ public class CompraDAO {
         return cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Clientes.SALDO));
     }
 
-    public void atualizarBanco(Cliente cliente, Double credito, String data){
+    public void atualizarBanco(Cliente cliente, Double credito, String data,String tipo){
         ContentValues valores = new ContentValues();
         valores.put(DatabaseHelper.Compra.ID_COMPRADOR, cliente.getId());
         valores.put(DatabaseHelper.Compra.DATA, data);
         valores.put(DatabaseHelper.Compra.VALOR, credito);
-        valores.put(DatabaseHelper.Compra.TIPO, "credito");
+        valores.put(DatabaseHelper.Compra.TIPO, tipo);
         getDatabase().insert(DatabaseHelper.Compra.TABELA_COMPRA,null,valores);
         getDatabase().close();
     }

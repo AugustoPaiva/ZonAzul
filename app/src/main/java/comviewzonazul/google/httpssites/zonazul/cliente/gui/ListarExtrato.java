@@ -61,8 +61,8 @@ public class ListarExtrato extends AppCompatActivity {
 
     public void criarListagem(){
         extrato = (ListView)findViewById(R.id.listView_extrat);
-        String[] from = {DatabaseHelper.Compra.DATA, DatabaseHelper.Compra.ID_COMPRADOR,DatabaseHelper.Compra.TIPO, DatabaseHelper.Compra.VALOR};
-        int [] to = {R.id.data, R.id.comprador, R.id.tipo, R.id.valor};
+        String[] from = {DatabaseHelper.Compra.DATA, DatabaseHelper.Compra.TIPO, DatabaseHelper.Compra.VALOR};
+        int [] to = {R.id.data, R.id.tipo, R.id.valor};
         ad = new SimpleCursorAdapter(getApplicationContext(), R.layout.extrato,cursor,from,to);
         extrato.setAdapter(ad);
     }
