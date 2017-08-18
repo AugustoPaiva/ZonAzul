@@ -64,7 +64,7 @@ public class PontoVendaDAO {
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.Perfis.ID_USUARIO,id_usuario);
         cv.put(DatabaseHelper.Perfis.ID_PERFIL,"2");
-        getDatabase().update(DatabaseHelper.Perfis.TABELA_PERFIS, cv, "usuario="+id_usuario, null);
+        getDatabase().insert(DatabaseHelper.Perfis.TABELA_PERFIS,null, cv);
         getDatabase().close();
     }
 }

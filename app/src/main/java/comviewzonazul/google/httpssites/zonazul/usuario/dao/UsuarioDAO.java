@@ -74,15 +74,10 @@ public class UsuarioDAO {
 
     public boolean existeCliente(int idusuario) {
 
-        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=?", new String[] { String.valueOf(idusuario) }, null, null, null, null);
+        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=? AND " + DatabaseHelper.Perfis.ID_PERFIL + "=?", new String[] { String.valueOf(idusuario), Integer.toString(1) }, null, null, null, null);
         if (cursor != null) {
-            cursor.moveToFirst();
-            int cliente = cursor.getInt(2);
 
-            if(cliente == 1){
-                return true;
-            }
-            return false;
+            return true;
         }
         return false;
     }
@@ -112,15 +107,10 @@ public class UsuarioDAO {
     }
     public boolean existePontoVenda(int idusuario){
 
-        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=?", new String[] { String.valueOf(idusuario) }, null, null, null, null);
+        Cursor cursor = getDatabase().query(DatabaseHelper.Perfis.TABELA_PERFIS, DatabaseHelper.Perfis.COLUNAS_PERFIS, DatabaseHelper.Perfis.ID_USUARIO + "=? AND " + DatabaseHelper.Perfis.ID_PERFIL + "=?", new String[] { String.valueOf(idusuario), Integer.toString(2) }, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            int pontovenda = cursor.getInt(2);
-
-            if(pontovenda == 2){
-                return true;
-            }
-            return false;
+            return true;
         }
         return false;
     }

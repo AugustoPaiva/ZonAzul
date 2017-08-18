@@ -14,6 +14,7 @@ import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
+import comviewzonazul.google.httpssites.zonazul.infraestrutura.BitmapUtility;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
@@ -22,6 +23,7 @@ import util.Mensagem;
 public class EditarClienteActivity extends AppCompatActivity {
 
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
+    byte[] imagemDataBase;
     Usuario usuario = new Usuario();
     Endereco endereco;
     Cliente cliente;
@@ -56,7 +58,7 @@ public class EditarClienteActivity extends AppCompatActivity {
         endereco = new Endereco(editarnumero,editarcomplemento,editarcep,editarcidade);
         cliente = new Cliente(editaremail,endereco,usuario.get_id());
         ClienteNegocio clienteNegocio = new ClienteNegocio(context, cliente);
-        clienteNegocio.editar(cliente);
+        clienteNegocio.editar(cliente, imagemDataBase);
         startActivity(new Intent(this, PrincipalClienteActivity.class));
         Mensagem.Msg(this, getString(R.string.msg_Editado));
         finish();
@@ -73,9 +75,10 @@ public class EditarClienteActivity extends AppCompatActivity {
             Bundle bundle = data.getExtras();
             if(bundle !=null){
                 Bitmap img = (Bitmap) bundle.get("data");
-
                 ImageView iv = (ImageView) findViewById(R.id.foto_usuario);
                 iv.setImageBitmap(img);
+                BitmapUtility imagem = new BitmapUtility();
+                imagemDataBase = imagem.getBytes(img);
             }
         }
     }

@@ -31,8 +31,8 @@ public class ClienteNegocio {
         clienteDAO.salvarCliente();
     }
 
-    public void editar(Cliente cliente){
-        clienteDAO.editar(cliente);
+    public void editar(Cliente cliente, byte[] image){
+        clienteDAO.editar(cliente,image);
     }
 
 

@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "nome TEXT, login TEXT, senha TEXT)");
         // Tabela de clientes
         db.execSQL("CREATE TABLE Clientes ( _id INTEGER PRIMARY KEY, "
-                + "saldo TEXT, usuario TEXT, email TEXT, cep TEXT, complemento TEXT, numero TEXT, cidade TEXT, id_usuario TEXT)");
+                + "saldo TEXT, usuario TEXT, email TEXT, cep TEXT, complemento TEXT, numero TEXT, cidade TEXT, id_usuario TEXT, imagem BLOB)");
         //Cadastrar um usuario
         db.execSQL("insert into Usuarios(nome, login, senha) values('Admin', 'admin','123')");
         //Associações
@@ -74,8 +74,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COMPLEMENTO = "complemento";
         public static final String NUMERO = "numero";
         public static final String CIDADE = "cidade";
+        public static final String IMAGEM = "imagem";
         public static final String[] COLUNAS_CLIENTES = new String[]{
-                _ID, SALDO, USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE,
+                _ID, SALDO, USUARIO, EMAIL, CEP, COMPLEMENTO, NUMERO, CIDADE, IMAGEM
         };
     }
 

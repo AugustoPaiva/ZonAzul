@@ -72,7 +72,7 @@ public class ClienteDAO {
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.Perfis.ID_USUARIO,id_usuario);
         cv.put(DatabaseHelper.Perfis.ID_PERFIL,"1");
-        getDatabase().update(DatabaseHelper.Perfis.TABELA_PERFIS, cv, "usuario="+id_usuario, null);
+        getDatabase().insert(DatabaseHelper.Perfis.TABELA_PERFIS,null, cv);
         getDatabase().close();
     }
 
@@ -113,7 +113,7 @@ public class ClienteDAO {
         return id;
     }
 
-    public void editar(Cliente cliente){
+    public void editar(Cliente cliente, byte[] image){
         retornoLogin();
         ContentValues valores = new ContentValues();
         int id_usuario = retornarId(login);
@@ -124,6 +124,7 @@ public class ClienteDAO {
         valores.put(DatabaseHelper.Clientes.NUMERO, cliente.getEndereco().getNumero());
         valores.put(DatabaseHelper.Clientes.CIDADE, cliente.getEndereco().getCidade());
         valores.put(DatabaseHelper.Clientes.USUARIO, id_usuario);
+        valores.put(DatabaseHelper.Clientes.IMAGEM, image);
         getDatabase().update(DatabaseHelper.Clientes.TABELA_CLIENTES,valores,"usuario="+id_usuario,null);
     }
 }

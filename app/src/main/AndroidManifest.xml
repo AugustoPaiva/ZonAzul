@@ -58,7 +58,7 @@
             android:value="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".infraestrutura.MapsActivity"
             android:label="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo"></activity>
     </application>
 
