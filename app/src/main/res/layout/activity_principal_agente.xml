@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/placa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundo2"
@@ -12,52 +13,54 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="Verificar placa"
         android:textColor="@color/colorAccent2"
         android:textSize="28dp"
-        android:layout_marginTop="76dp"
-        android:text="Verificar placa"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:layout_marginLeft="52dp"
-        android:text="voltar"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:onClick="voltar"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="52dp" />
+        android:layout_marginBottom="56dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:background="@color/colorAccent2"
+        android:onClick="voltar"
+        android:text="voltar"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/confirmar"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:text="pesquisar"
-        android:background="@color/colorAccent2"
-        android:textColor="@color/colorPrimaryDark"
-        android:onClick="pesquisar"
         android:layout_alignBaseline="@+id/button4"
         android:layout_alignBottom="@+id/button4"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="51dp" />
+        android:layout_marginEnd="51dp"
+        android:background="@color/colorAccent2"
+        android:onClick="pesquisar"
+        android:text="pesquisar"
+        android:textColor="@color/colorPrimaryDark" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+    <EditText
+        android:id="@+id/plac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView11"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="81dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:text=""
-        android:hint="Inserir placa"
-        android:textColorHint="@color/colorAccent2"
-        android:textColor="@color/colorAccent2"/>
+        android:textColor="@color/colorAccent2"
+        android:hint="Insira a Placa"
+        android:textColorHint="@color/colorAccent2"/>
 
 </RelativeLayout>

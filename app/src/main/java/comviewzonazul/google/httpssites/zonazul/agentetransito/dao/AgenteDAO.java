@@ -49,7 +49,7 @@ public class AgenteDAO {
         valores.put(DatabaseHelper.Agentes.REGISTRO, agente.getRegistro());
         valores.put(DatabaseHelper.Agentes.MUNICIPIO, agente.getMunicipio());
         valores.put(DatabaseHelper.Agentes.USUARIO, id_usuario);
-        getDatabase().insert(DatabaseHelper.Agentes.TABELA_AGENTES, null, valores);
+
         ContentValues cv = new ContentValues();
         cv.put(DatabaseHelper.Perfis.ID_USUARIO, id_usuario);
         cv.put(DatabaseHelper.Perfis.ID_PERFIL,"3");

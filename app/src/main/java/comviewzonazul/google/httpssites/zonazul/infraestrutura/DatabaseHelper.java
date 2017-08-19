@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "usuario TEXT, email TEXT, cep TEXT, complemento TEXT, numero TEXT, cidade TEXT, id_usuario TEXT, cnpj TEXT, nome_estabelecimento TEXT)");
         // Tabela agentes
         db.execSQL("CREATE TABLE Agentes ( _id INTEGER PRIMARY KEY, "
-                + "email TEXT, registro TEXT, municipio TEXT)");
+                + "usuario TEXT, email TEXT, registro TEXT, municipio TEXT)");
 
     }
 

@@ -45,6 +45,7 @@
         <activity android:name=".cliente.gui.EditarClienteActivity" />
         <activity android:name=".cliente.gui.perfil_cliente" />
         <activity android:name=".carro.gui.AdicionarCarro" />
+        <activity android:name=".agentetransito.gui.PrincipalAgenteActivity" />
         <activity android:name=".carro.gui.GerenciarCarroActivity" />
         <activity android:name=".estacionamento.gui.Estacionar" />
         <activity android:name=".pontovenda.gui.CadastroPontoVendaActivity" />
@@ -61,7 +62,8 @@
         <activity
             android:name=".infraestrutura.MapsActivity"
             android:label="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
-        <activity android:name=".cliente.gui.ConfiguracaoClienteActivity"></activity>
+        <activity android:name=".cliente.gui.ConfiguracaoClienteActivity" />
+        <activity android:name=".estacionamento.gui.EstacionamentosActivity"></activity>
     </application>
 
 </manifest>

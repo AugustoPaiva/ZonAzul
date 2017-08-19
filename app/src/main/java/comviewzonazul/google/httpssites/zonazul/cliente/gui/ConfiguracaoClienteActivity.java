@@ -7,6 +7,7 @@ import android.view.View;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 
 public class ConfiguracaoClienteActivity extends AppCompatActivity {
 
@@ -34,6 +35,20 @@ public class ConfiguracaoClienteActivity extends AppCompatActivity {
     public void extrato(View view){
         Intent intent = new Intent();
         intent.setClass(this, ExtratoActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void voltar(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this, PrincipalClienteActivity.class);
         startActivity(intent);
         finish();
     }

@@ -50,11 +50,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
         Context context = getApplicationContext();
         ClienteNegocio clientenegocio = new ClienteNegocio(getApplicationContext());
         cliente = clientenegocio.retornaCliente(user.get_id());
-        imagemPerfil = clientenegocio.pegarImagem(cliente.getId());
+        imagemPerfil = clientenegocio.pegarImagem(cliente.getUser_id());
     }
 
     public void editarItens(){
+        encontraCliente();
         nomeUser.setText(user.getNome().toUpperCase()+"");
+
         saldoUsuario.setText("R$" +cliente.getSaldo() +"");
         if(imagemPerfil != null){
             perfilPic.setImageBitmap(imagemPerfil);

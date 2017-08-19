@@ -11,6 +11,7 @@ import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.compra.negocio.CompraNegocio;
+import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
 
@@ -55,9 +56,15 @@ public class PontoVendaActivity extends AppCompatActivity {
     }
     public void logout(View view){
         Intent intent = new Intent();
-        intent.setClass(this, LoginActivity.class);
+        intent.setClass(this, EscolhaPerfilActivity.class);
         startActivity(intent);
         finish();
     }
 
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.setClass(this, EscolhaPerfilActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -34,13 +34,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.368"
-        android:layout_below="@+id/editcidade"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="14dp" />
+        android:layout_below="@+id/textViewNome"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btn_edit"
@@ -93,8 +92,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/editnome" />
+        app:layout_constraintTop_toBottomOf="@+id/editnome"
+        android:layout_below="@+id/editnome"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
 
     <EditText
         android:id="@+id/editcep"
@@ -109,7 +110,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintTop_toBottomOf="@+id/editemail" />
+        app:layout_constraintTop_toBottomOf="@+id/editemail"
+        android:layout_below="@+id/editemail"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:id="@+id/editnumero"
@@ -124,7 +128,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintTop_toBottomOf="@+id/editcep" />
+        app:layout_constraintTop_toBottomOf="@+id/editcep"
+        android:layout_below="@+id/editcomplemento"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
 
     <EditText
         android:id="@+id/editcomplemento"
@@ -140,8 +147,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintTop_toBottomOf="@+id/editnumero"
-        android:layout_above="@+id/button11"
-        android:layout_alignEnd="@+id/button11" />
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/editcep"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/editcidade"
@@ -157,9 +165,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_below="@+id/foto_usuario"
-        android:layout_alignStart="@+id/editnome"
-        android:layout_marginTop="158dp" />
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/editnumero"
+        android:layout_alignParentStart="true" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -168,9 +176,8 @@
         android:layout_height="96dp"
         android:src="@drawable/user"
         android:id="@+id/foto_usuario"
-        android:layout_marginStart="14dp"
-        android:layout_alignTop="@+id/button11"
-        android:layout_alignStart="@+id/editcidade" /> // Sua imagem
+        android:layout_alignTop="@+id/editnome"
+        android:layout_alignEnd="@+id/textViewNome" /> // Sua imagem
     app:civ_border_width="0dp" // Se quiser pode colocar uma borda na imagem tambem
     app:civ_border_color="#FF000000"/>
 
@@ -184,9 +191,10 @@
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="132dp"
         android:onClick="tirarFoto"
-        android:layout_below="@+id/editemail"
-        android:layout_toEndOf="@+id/editcidade"
-        android:layout_marginTop="113dp" />
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="11dp"
+        android:layout_below="@+id/foto_usuario"
+        android:layout_alignEnd="@+id/textViewNome" />
 
 
 </RelativeLayout>
