@@ -3,8 +3,8 @@ package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -12,12 +12,10 @@ import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
-import comviewzonazul.google.httpssites.zonazul.usuario.dao.UsuarioDAO;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.CadUsuarioActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mask;
 import util.Mensagem;
 
 public class CadastroClienteActivity2 extends AppCompatActivity {
@@ -40,6 +38,7 @@ public class CadastroClienteActivity2 extends AppCompatActivity {
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
         txt_cep = (EditText) findViewById(R.id.txt_cep);
+        txt_cep.addTextChangedListener(Mask.insert(Mask.CEP_MASK, txt_cep));
         txt_numero = (EditText) findViewById(R.id.txt_numero);
         txt_complemeto = (EditText) findViewById(R.id.txt_complemento);
         txt_cidade = (EditText) findViewById(R.id.txt_cidade);

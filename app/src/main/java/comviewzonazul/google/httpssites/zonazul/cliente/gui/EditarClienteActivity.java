@@ -16,8 +16,8 @@ import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.infraestrutura.BitmapUtility;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mask;
 import util.Mensagem;
 
 public class EditarClienteActivity extends AppCompatActivity {
@@ -41,6 +41,7 @@ public class EditarClienteActivity extends AppCompatActivity {
         editcomplemento = (EditText) findViewById(R.id.editcomplemento);
         editnumero = (EditText) findViewById(R.id.editnumero);
         editcep = (EditText) findViewById(R.id.editcep);
+        editcep.addTextChangedListener(Mask.insert(Mask.CEP_MASK, editcep));
         editemail = (EditText) findViewById(R.id.editemail);
     }
 

@@ -4,23 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.agentetransito.dominio.Agente;
 import comviewzonazul.google.httpssites.zonazul.agentetransito.negocio.AgenteNegocio;
-import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
-import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Endereco;
-import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
-import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mask;
 import util.Mensagem;
 
 public class CadastroAgenteActivity extends AppCompatActivity {
@@ -42,6 +36,7 @@ public class CadastroAgenteActivity extends AppCompatActivity {
         context = getApplicationContext();
         txt_email = (EditText) findViewById(R.id.txt_email);
         txt_registro = (EditText) findViewById(R.id.txt_registro);
+        txt_registro.addTextChangedListener(Mask.insert(Mask.Agent_Mask, txt_registro));
         txt_municipio = (EditText) findViewById(R.id.txt_municipio);
     }
 

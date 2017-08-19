@@ -15,6 +15,7 @@ import comviewzonazul.google.httpssites.zonazul.pontovenda.negocio.PontoVendaNeg
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
+import util.Mask;
 
 public class CadastroPontoVendaActivity extends AppCompatActivity {
 
@@ -36,7 +37,9 @@ public class CadastroPontoVendaActivity extends AppCompatActivity {
         senha_usuario = preferences.getString("SENHA", null);
         editnome_estabelecimento = (EditText) findViewById(R.id.editnome_estabelecimento);
         editCNPJ = (EditText) findViewById(R.id.editCNPJ);
+        editCNPJ.addTextChangedListener(Mask.insert(Mask.CNPJ_MASK, editCNPJ));
         txt_cep = (EditText) findViewById(R.id.txt_cep);
+        txt_cep.addTextChangedListener(Mask.insert(Mask.CEP_MASK, txt_cep));
         txt_numero = (EditText) findViewById(R.id.txt_numero);
         txt_complemeto = (EditText) findViewById(R.id.txt_complemento);
         txt_cidade = (EditText) findViewById(R.id.txt_cidade);
