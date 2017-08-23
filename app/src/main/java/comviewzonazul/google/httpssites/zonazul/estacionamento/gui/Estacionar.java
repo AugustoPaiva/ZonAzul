@@ -1,10 +1,12 @@
 package comviewzonazul.google.httpssites.zonazul.estacionamento.gui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,10 +58,12 @@ public class Estacionar extends AppCompatActivity {
                 }
                 else {
                     if (!estacionarNegocio.estaEstacionado(placa)) {
+                        exemplo_simples();
                         estacionarNegocio.estacionar(placa, buscarCliente());
                         Toast.makeText(getBaseContext(), "Seu carro pode fica estacionado até " + estacionarNegocio.horaSaida(), Toast.LENGTH_LONG).show();
                     }
                     else{
+                        exemplo_simples();
                         Toast.makeText(getBaseContext(), "Seu carro ja esta estacionado." , Toast.LENGTH_LONG).show();
                     }
                 }
@@ -111,6 +115,31 @@ public class Estacionar extends AppCompatActivity {
         intent.setClass(this, PrincipalClienteActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void exemplo_simples() {
+        //Cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //define o titulo
+        builder.setTitle("Escolha");
+        //define a mensagem
+        builder.setMessage("Qual é sua prerefencia em estacionamento.");
+        //define um botão como positivo
+        builder.setPositiveButton("Minimizar custo", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Toast.makeText(getApplicationContext(), "positivo=" + arg1, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //define um botão como negativo.
+        builder.setNegativeButton("Minimizar distancia", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Toast.makeText(getApplicationContext(), "negativo=" + arg1, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //cria o AlertDialog
+        AlertDialog alerta = builder.create();
+        //Exibe
+        alerta.show();
     }
 }
 

@@ -11,8 +11,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import comviewzonazul.google.httpssites.zonazul.R;
 import comviewzonazul.google.httpssites.zonazul.cliente.gui.PrincipalClienteActivity;
+import comviewzonazul.google.httpssites.zonazul.estacionamento.gui.EstacionamentosActivity;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -48,6 +52,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng recife = new LatLng(-8.062798, -34.87845);
         mMap.addMarker(new MarkerOptions().position(recife).title("Área de ZonAzul"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(recife, 18.0f));
+        estacionamentoCEAGRI();
+        estacionamentoCEGOE();
+        estacionamentoCentral();
 
     }
     public void onBackPressed(){
@@ -56,4 +63,77 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
         finish();
     }
+
+    public void estacionamentoCEAGRI(){
+        LatLng ceagri = new LatLng(-8.018071, -34.944485);
+        LatLng ceagri2 = new LatLng(-8.018104, -34.944474);
+        LatLng ceagri3 = new LatLng(-8.018139, -34.944464);
+        LatLng ceagri4 = new LatLng(-8.018178, -34.944453);
+        LatLng ceagri5 = new LatLng(-8.018227, -34.944438);
+        LatLng ceagri6 = new LatLng(-8.018049, -34.944428);
+        LatLng ceagri7 = new LatLng(-8.018133, -34.944402);
+        LatLng ceagri8 = new LatLng(-8.018177, -34.944386);
+        LatLng ceagri9 = new LatLng(-8.018216, -34.944374);
+        LatLng ceagri10 = new LatLng(-8.018254, -34.944367);
+        mMap.addMarker(new MarkerOptions().position(ceagri).title("Vaga CEAGRI 1"));
+        mMap.addMarker(new MarkerOptions().position(ceagri2).title("Vaga CEAGRI 2"));
+        mMap.addMarker(new MarkerOptions().position(ceagri3).title("Vaga CEAGRI 3"));
+        mMap.addMarker(new MarkerOptions().position(ceagri4).title("Vaga CEAGRI 4"));
+        mMap.addMarker(new MarkerOptions().position(ceagri5).title("Vaga CEAGRI 5"));
+        mMap.addMarker(new MarkerOptions().position(ceagri6).title("Vaga CEAGRI 6"));
+        mMap.addMarker(new MarkerOptions().position(ceagri7).title("Vaga CEAGRI 7"));
+        mMap.addMarker(new MarkerOptions().position(ceagri8).title("Vaga CEAGRI 8"));
+        mMap.addMarker(new MarkerOptions().position(ceagri9).title("Vaga CEAGRI 9"));
+        mMap.addMarker(new MarkerOptions().position(ceagri10).title("Vaga CEAGRI 10"));
+    }
+
+    public void estacionamentoCEGOE(){
+        LatLng cegoe = new LatLng(-8.017714, -34.949983);
+        LatLng cegoe2 = new LatLng(-8.017749, -34.949942);
+        LatLng cegoe3 = new LatLng(-8.017790, -34.949902);
+        LatLng cegoe4 = new LatLng(-8.017826, -34.949870);
+        LatLng cegoe5 = new LatLng(-8.017872, -34.949828);
+        LatLng cegoe6 = new LatLng(-8.017918, -34.949786);
+        LatLng cegoe7 = new LatLng(-8.017976, -34.949735);
+        LatLng cegoe8 = new LatLng(-8.018027, -34.949690);
+        LatLng cegoe9 = new LatLng(-8.018084, -34.949631);
+        LatLng cegoe10 = new LatLng(-8.018145, -34.949578);
+        mMap.addMarker(new MarkerOptions().position(cegoe).title("Vaga CEGOE 1"));
+        mMap.addMarker(new MarkerOptions().position(cegoe2).title("Vaga CEGOE 2"));
+        mMap.addMarker(new MarkerOptions().position(cegoe3).title("Vaga CEGOE 3"));
+        mMap.addMarker(new MarkerOptions().position(cegoe4).title("Vaga CEGOE 4"));
+        mMap.addMarker(new MarkerOptions().position(cegoe5).title("Vaga CEGOE 5"));
+        mMap.addMarker(new MarkerOptions().position(cegoe6).title("Vaga CEGOE 6"));
+        mMap.addMarker(new MarkerOptions().position(cegoe7).title("Vaga CEGOE 7"));
+        mMap.addMarker(new MarkerOptions().position(cegoe8).title("Vaga CEGOE 8"));
+        mMap.addMarker(new MarkerOptions().position(cegoe9).title("Vaga CEGOE 9"));
+        mMap.addMarker(new MarkerOptions().position(cegoe10).title("Vaga CEGOE 10"));
+    }
+
+    public void estacionamentoCentral(){
+        LatLng central = new LatLng(-8.013484, -34.950579);
+        LatLng central2 = new LatLng(-8.013551, -34.950552);
+        LatLng central3 = new LatLng(-8.013511, -34.950620);
+        LatLng central4 = new LatLng(-8.013577, -34.950601);
+        LatLng central5 = new LatLng(-8.013560, -34.950695);
+        LatLng central6 = new LatLng(-8.013626, -34.950674);
+        LatLng central7 = new LatLng(-8.013586, -34.950735);
+        LatLng central8 = new LatLng(-8.013646, -34.950703);
+        LatLng central9 = new LatLng(-8.013612, -34.950778);
+        LatLng central10 = new LatLng(-8.013669, -34.950740);
+        mMap.addMarker(new MarkerOptions().position(central).title("Vaga central 1"));
+        mMap.addMarker(new MarkerOptions().position(central2).title("Vaga central 2"));
+        mMap.addMarker(new MarkerOptions().position(central3).title("Vaga central 3"));
+        mMap.addMarker(new MarkerOptions().position(central4).title("Vaga central 4"));
+        mMap.addMarker(new MarkerOptions().position(central5).title("Vaga central 5"));
+        mMap.addMarker(new MarkerOptions().position(central6).title("Vaga central 6"));
+        mMap.addMarker(new MarkerOptions().position(central7).title("Vaga central 7"));
+        mMap.addMarker(new MarkerOptions().position(central8).title("Vaga central 8"));
+        mMap.addMarker(new MarkerOptions().position(central9).title("Vaga central 9"));
+        mMap.addMarker(new MarkerOptions().position(central10).title("Vaga central 10"));
+
+
+    }
+
+
 }
