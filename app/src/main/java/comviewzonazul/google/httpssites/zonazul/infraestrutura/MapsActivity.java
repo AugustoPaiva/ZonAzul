@@ -137,7 +137,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(central8).title("Vaga central 8"));
         mMap.addMarker(new MarkerOptions().position(central9).title("Vaga central 9"));
         mMap.addMarker(new MarkerOptions().position(central10).title("Vaga central 10"));
-        LatLng[] lista = {(central,null),central2,central3,central4,central5,central6,central7,central8,central9,central10};
+        LatLng[] lista = {central,central2,central3,central4,central5,central6,central7,central8,central9,central10};
         return lista;
     }
 
