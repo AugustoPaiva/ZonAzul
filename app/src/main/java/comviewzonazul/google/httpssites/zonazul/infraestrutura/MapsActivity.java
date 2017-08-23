@@ -21,6 +21,9 @@ import comviewzonazul.google.httpssites.zonazul.estacionamento.gui.Estacionament
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    LatLng[] ceagriVagas;
+    LatLng[] cegoeVagas;
+    LatLng[] centralVagas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +48,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         // Add a marker in Recife
-        LatLng recife = new LatLng(-8.062798, -34.87845);
+        LatLng recife = new LatLng(-8.013986, -34.948212);
         mMap.addMarker(new MarkerOptions().position(recife).title("Área de ZonAzul"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(recife, 18.0f));
-        estacionamentoCEAGRI();
-        estacionamentoCEGOE();
-        estacionamentoCentral();
+        ceagriVagas = estacionamentoCEAGRI();
+        cegoeVagas = estacionamentoCEGOE();
+        centralVagas = estacionamentoCentral();
 
     }
     public void onBackPressed(){
@@ -64,7 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         finish();
     }
 
-    public void estacionamentoCEAGRI(){
+    public LatLng[] estacionamentoCEAGRI(){
         LatLng ceagri = new LatLng(-8.018071, -34.944485);
         LatLng ceagri2 = new LatLng(-8.018104, -34.944474);
         LatLng ceagri3 = new LatLng(-8.018139, -34.944464);
@@ -85,9 +87,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(ceagri8).title("Vaga CEAGRI 8"));
         mMap.addMarker(new MarkerOptions().position(ceagri9).title("Vaga CEAGRI 9"));
         mMap.addMarker(new MarkerOptions().position(ceagri10).title("Vaga CEAGRI 10"));
+        LatLng[] lista = {ceagri,ceagri2,ceagri3,ceagri4,ceagri5,ceagri5,ceagri6,ceagri7,ceagri8,ceagri9,ceagri10};
+        return lista;
     }
 
-    public void estacionamentoCEGOE(){
+    public LatLng[] estacionamentoCEGOE(){
         LatLng cegoe = new LatLng(-8.017714, -34.949983);
         LatLng cegoe2 = new LatLng(-8.017749, -34.949942);
         LatLng cegoe3 = new LatLng(-8.017790, -34.949902);
@@ -108,9 +112,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(cegoe8).title("Vaga CEGOE 8"));
         mMap.addMarker(new MarkerOptions().position(cegoe9).title("Vaga CEGOE 9"));
         mMap.addMarker(new MarkerOptions().position(cegoe10).title("Vaga CEGOE 10"));
+        LatLng[] lista = {cegoe,cegoe2,cegoe3,cegoe4,cegoe5,cegoe6,cegoe7,cegoe8,cegoe9,cegoe10};
+        return lista;
     }
 
-    public void estacionamentoCentral(){
+    public LatLng[] estacionamentoCentral(){
         LatLng central = new LatLng(-8.013484, -34.950579);
         LatLng central2 = new LatLng(-8.013551, -34.950552);
         LatLng central3 = new LatLng(-8.013511, -34.950620);
@@ -131,8 +137,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(central8).title("Vaga central 8"));
         mMap.addMarker(new MarkerOptions().position(central9).title("Vaga central 9"));
         mMap.addMarker(new MarkerOptions().position(central10).title("Vaga central 10"));
-
-
+        LatLng[] lista = {(central,null),central2,central3,central4,central5,central6,central7,central8,central9,central10};
+        return lista;
     }
 
 
