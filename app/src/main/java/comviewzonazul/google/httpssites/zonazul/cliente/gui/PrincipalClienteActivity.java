@@ -9,18 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import comviewzonazul.google.httpssites.zonazul.infraestrutura.MapsActivity;
 import comviewzonazul.google.httpssites.zonazul.R;
-import comviewzonazul.google.httpssites.zonazul.carro.gui.GerenciarCarroActivity;
 import comviewzonazul.google.httpssites.zonazul.cliente.dominio.Cliente;
 import comviewzonazul.google.httpssites.zonazul.cliente.negocio.ClienteNegocio;
 import comviewzonazul.google.httpssites.zonazul.compra.gui.CompraActivity;
 import comviewzonazul.google.httpssites.zonazul.estacionamento.gui.Estacionar;
 import comviewzonazul.google.httpssites.zonazul.usuario.dominio.Usuario;
 import comviewzonazul.google.httpssites.zonazul.usuario.gui.EscolhaPerfilActivity;
-import comviewzonazul.google.httpssites.zonazul.usuario.gui.LoginActivity;
 import comviewzonazul.google.httpssites.zonazul.usuario.negocio.UsuarioNegocio;
-import de.hdodenhof.circleimageview.CircleImageView;
 
  public class PrincipalClienteActivity extends AppCompatActivity {
 

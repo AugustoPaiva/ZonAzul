@@ -60,7 +60,7 @@
             android:value="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
 
         <activity
-            android:name=".infraestrutura.MapsActivity"
+            android:name=".cliente.gui.MapsActivity"
             android:label="AIzaSyB6UTFduOx-TUSFcMcoIAiCCWlE7ByFRNo" />
         <activity android:name=".cliente.gui.ConfiguracaoClienteActivity" />
         <activity android:name=".estacionamento.gui.EstacionamentosActivity"></activity>

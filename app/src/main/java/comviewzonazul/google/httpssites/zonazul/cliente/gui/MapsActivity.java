@@ -1,4 +1,4 @@
-package comviewzonazul.google.httpssites.zonazul.infraestrutura;
+package comviewzonazul.google.httpssites.zonazul.cliente.gui;
 
 import android.content.Intent;
 import android.location.Location;
