@@ -1,6 +1,7 @@
 package comviewzonazul.google.httpssites.zonazul.infraestrutura;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -142,6 +143,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(central10).title("Vaga central 10"));
         Vaga[] lista = {new Vaga(central,0), new Vaga(central2,0),new Vaga(central3,0),new Vaga(central4,0),new Vaga(central5,0),new Vaga(central6,0),new Vaga(central7,0),new Vaga(central8,0),new Vaga(central9,0),new Vaga(central10,0)};
         return lista;
+    }
+
+    public Vaga vagaProxima(Vaga[] vagas, LatLng localizacao){
+        float distancia = 1000000000.0f;
+        Vaga vaga = null;
+
+        for(Vaga vag : vagas){
+            Location start = new Location("Start Point");
+            start.setLatitude(localizacao.latitude);
+            start.setLongitude(localizacao.longitude);
+            Location finish = new Location("Finish Point");
+            finish.setLatitude(vag.getLocalização().latitude);
+            finish.setLongitude(vag.getLocalização().longitude);
+            float distance = start.distanceTo(finish);
+
+            if(distancia > distance){
+                if(vag.getDisponivel() == 0){
+                    distancia = distance;
+                    vaga = vag;
+                }
+            }
+        }
+        return vaga;
+
+
     }
 
 
