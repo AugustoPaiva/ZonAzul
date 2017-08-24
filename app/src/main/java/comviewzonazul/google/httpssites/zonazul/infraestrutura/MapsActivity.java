@@ -145,6 +145,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return lista;
     }
 
+    Vaga[][] todas = {estacionamentoCEAGRI(),estacionamentoCEGOE(),estacionamentoCentral()};
+
     public Vaga vagaProxima(Vaga[] vagas, LatLng localizacao){
         float distancia = 1000000000.0f;
         Vaga vaga = null;
@@ -166,8 +168,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         return vaga;
+    }
 
+    public Vaga[] blocoProximo(Vaga[][] todosBlocos,LatLng localizacao){//preciso de um metodo que verifique os blocos que nao estejam vazios
+        float distancia = 100000000000.0f;
+        Vaga[] listaVaga = null;
 
+        for(Vaga[] bloco : todosBlocos){
+            Vaga perto = vagaProxima(bloco,localizacao); //Pega a vaga mais proxima de um bloo de vagas
+
+            Location start = new Location("Start Point");
+            start.setLatitude(localizacao.latitude);
+            start.setLongitude(localizacao.longitude);
+            Location finish = new Location("Finish Point");
+            finish.setLatitude(perto.getLocalização().latitude);
+            finish.setLongitude(perto.getLocalização().longitude);
+            float distance = start.distanceTo(finish); //Agora tem a distancia da melhor vaga de um bloco até o destino final
+            if(distancia>distance){
+                distancia = distance;
+                listaVaga = bloco;
+            }
+        }
+        return listaVaga;
     }
 
 
